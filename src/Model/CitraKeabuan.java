@@ -85,5 +85,7 @@ public class CitraKeabuan extends Citra{
         this.p = p;
     }
     
-    
+    public BufferedImage getImg() {
+        return this.img;
+    }
 }

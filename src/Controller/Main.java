@@ -130,11 +130,17 @@ public class Main {
             int index = 0;
             this.progress.setVisible(true);
             this.progress.setMaximum(this.file.listFiles().length-1);
+            System.out.println("JUMLAH FILE: " + file.listFiles().length);
             for(File f : file.listFiles()){
+                System.out.println(f.getName());
                 this.progress.setValue(index);
                 data = new Data();
                 data.setPlat_nomor(f.getName());
-                citra = pra_proses.doBinerisasi(pra_proses.doInvers(pra_proses.doGrayScale(new CitraWarna(ImageIO.read(f.getAbsoluteFile())))));
+                citra = pra_proses.doBinerisasi(pra_proses.doInvers(pra_proses
+                        .doGrayScale(new CitraWarna(ImageIO
+                                .read(f.getAbsoluteFile())))));
+                ProfileProjection projector = new ProfileProjection(citra);
+                citra = projector.getProjectedImage();
                 this.progress.setString((index/100*this.file.listFiles().length)+"%");
                 data.setCitra(citra);
                 kumpulan_data.add(data);
