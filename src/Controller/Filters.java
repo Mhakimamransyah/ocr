@@ -7,6 +7,7 @@ package Controller;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  *
@@ -20,14 +21,14 @@ public class Filters {
     private static int[][] pixels;
     private static int imgWidth;
     private static int imgHeight;
-    private static ArrayList<ArrayList<Integer>> regionCoordinates;
+    private static ArrayList<List<Integer>> regionCoordinates;
     
     public static int[][] connected(int[][] pixels) {
         Filters.imgHeight = pixels.length;
         if (imgHeight <= 0) {
             throw new Error(""); 
         }
-        Filters.regionCoordinates = new ArrayList<ArrayList<Integer>>();
+        Filters.regionCoordinates = new ArrayList<List<Integer>>();
         Filters.imgWidth = pixels[0].length;
         Filters.pixels = pixels;
         
@@ -46,7 +47,7 @@ public class Filters {
     }
     
     private static void filter(int x, int y) {
-        ArrayList<ArrayList<Integer>> neighbors = new ArrayList<>();
+        ArrayList<List<Integer>> neighbors = new ArrayList<>();
         neighbors.add(new ArrayList<Integer>(Arrays
                 .asList(new Integer[]{x - 1, y - 1})));
         neighbors.add(new ArrayList<Integer>(Arrays
@@ -62,7 +63,7 @@ public class Filters {
         neighbors.add(new ArrayList<Integer>(Arrays
                 .asList(new Integer[]{x + 1, y + 1})));
         
-        for (ArrayList<Integer> xy : neighbors) {
+        for (List<Integer> xy : neighbors) {
             if (xy.get(0) < 0 || xy.get(1) < 0 || 
                     xy.get(0) >= Filters.imgWidth || xy.get(1) >= Filters.imgHeight) {
                 continue;
@@ -78,7 +79,7 @@ public class Filters {
     }
     
     private static void noiseCleaning() {
-        for (ArrayList<Integer> xy : Filters.regionCoordinates) {
+        for (List<Integer> xy : Filters.regionCoordinates) {
             Filters.pixels[xy.get(0)][xy.get(1)] = UPPER_BOUND_PIXEL;
         } 
     }

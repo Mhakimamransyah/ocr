@@ -20,7 +20,7 @@ public class ProfileProjection {
     private final int LOWER_BOUND_PIXEL = 0;
     private final int UPPER_BOUND_PIXEL = 255;
     private final int MAX_CHARACTER_NUM = 9;
-    private final double MIN_HEIGHT_SCALE = 0.3;
+    private final double MIN_HEIGHT_SCALE = 0.1;
     
     private BufferedImage img;
     private int imgWidth;
@@ -34,7 +34,7 @@ public class ProfileProjection {
         this.img = citra.getImg();
         this.imgWidth = this.img.getWidth();
         this.imgHeight = this.img.getHeight();
-        this.characterWidth = this.imgWidth / MAX_CHARACTER_NUM;
+        this.characterWidth = this.imgWidth / (MAX_CHARACTER_NUM - 1);
         this.characterHeight = (int)(this.imgHeight * MIN_HEIGHT_SCALE);
     
     }
@@ -58,10 +58,7 @@ public class ProfileProjection {
         int[] histogram = this.verticalProjection();
         List<Integer> segmentIndices = this.cut(histogram);
         System.out.println(segmentIndices);
-//        int[][] newPixels = Filters.connected(this.citra.getP());
-//        for (int[] x : newPixels) {
-//            System.out.println(Arrays.toString(x));
-//        }
+
         int[][] newPixels = this.citra.getP();
         for (int i = 0; i < this.imgHeight; i++) {
             for (int j : segmentIndices) {
@@ -144,5 +141,11 @@ public class ProfileProjection {
         return pixel <= 128 ? LOWER_BOUND_PIXEL : UPPER_BOUND_PIXEL;
     }
     
-    
+    public int[][] transposeMatrix(int [][] m){
+       int[][] temp = new int[m[0].length][m.length];
+       for (int i = 0; i < m.length; i++)
+           for (int j = 0; j < m[0].length; j++)
+               temp[j][i] = m[i][j];
+       return temp;
+    }
 }

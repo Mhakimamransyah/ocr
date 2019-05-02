@@ -20,12 +20,20 @@ import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
 import javax.swing.SwingWorker;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.general.DatasetUtilities;
+import org.jfree.data.statistics.HistogramDataset;
+import org.jfree.data.statistics.HistogramType;
 
 /**
  *
@@ -40,6 +48,27 @@ public class Main {
     public Main(){
       this.data_latih = new ArrayList<Data>();
       this.data_uji = new ArrayList<Data>();
+    }
+    
+    public void displayHistogram(double[] data) {
+        HistogramDataset dataset = new HistogramDataset();
+    dataset.addSeries("Histogram", data, 256);
+    String plotTitle = "Histogram";
+    String xaxis = "Pixel";
+    String yaxis = "Count";
+    PlotOrientation orientation = PlotOrientation.VERTICAL;
+    boolean show = true;
+    boolean toolTips = true;
+    boolean urls = false;
+    JFreeChart chart = ChartFactory.createHistogram(plotTitle, xaxis, yaxis, 
+            dataset, orientation, show, toolTips, urls);
+    ChartPanel chartPanel = new ChartPanel(chart);
+    JFrame f = new JFrame("HISTOGRAM");
+    f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    f.add(chartPanel);
+    f.pack();
+    f.setLocationRelativeTo(null);
+    f.setVisible(true);
     }
     
     
@@ -138,7 +167,7 @@ public class Main {
                 data.setPlat_nomor(f.getName());
                 citra = pra_proses.doBinerisasi(pra_proses.doInvers(pra_proses
                         .doGrayScale(new CitraWarna(ImageIO
-                                .read(f.getAbsoluteFile())))));
+                                .read(f.getAbsoluteFile())))), f.getName());
                 ProfileProjection projector = new ProfileProjection(citra);
                 citra = projector.getProjectedImage();
                 this.progress.setString((index/100*this.file.listFiles().length)+"%");
