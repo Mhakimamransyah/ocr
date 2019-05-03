@@ -168,7 +168,7 @@ public class Main {
                 citra = pra_proses.doBinerisasi(pra_proses.doInvers(pra_proses
                         .doGrayScale(new CitraWarna(ImageIO
                                 .read(f.getAbsoluteFile())))), f.getName());
-                ProfileProjection projector = new ProfileProjection(citra);
+                ProfileProjection projector = new ProfileProjection(citra, f.getName());
                 citra = projector.getProjectedImage();
                 this.progress.setString((index/100*this.file.listFiles().length)+"%");
                 data.setCitra(citra);

@@ -106,8 +106,8 @@ public class Prapengolahan {
     public int[][] horizontalBlackRunlengthFilter(int p[][]) {
         final int NUM_ROWS = p.length;
         final int NUM_COLS = p[0].length;
-        final double MIN_RATIO = 0.05;
-        final double MAX_RATIO = 0.85;
+        final double MIN_RATIO = 0.02;
+        final double MAX_RATIO = 0.90;
         
         for (int i = 0; i < NUM_ROWS; i++) {
             final int BLACK_PIXELS_NUM = 
