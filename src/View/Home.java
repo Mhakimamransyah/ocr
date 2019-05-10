@@ -369,6 +369,7 @@ public class Home extends javax.swing.JFrame {
 
         epoch1.add(jPanel8, java.awt.BorderLayout.LINE_START);
 
+        label_input_epcoh.setText("500");
         label_input_epcoh.setMaximumSize(new java.awt.Dimension(6, 2147483647));
         epoch1.add(label_input_epcoh, java.awt.BorderLayout.CENTER);
 
@@ -401,6 +402,7 @@ public class Home extends javax.swing.JFrame {
 
         epoch2.add(jPanel9, java.awt.BorderLayout.LINE_START);
 
+        label_input_learning_rate.setText("0.2");
         label_input_learning_rate.setMaximumSize(new java.awt.Dimension(6, 2147483647));
         epoch2.add(label_input_learning_rate, java.awt.BorderLayout.CENTER);
 
@@ -433,6 +435,7 @@ public class Home extends javax.swing.JFrame {
 
         epoch3.add(jPanel12, java.awt.BorderLayout.LINE_START);
 
+        label_input_hidden_layer.setText("3");
         label_input_hidden_layer.setMaximumSize(new java.awt.Dimension(6, 2147483647));
         epoch3.add(label_input_hidden_layer, java.awt.BorderLayout.CENTER);
 

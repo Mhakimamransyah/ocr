@@ -77,10 +77,20 @@ public class CitraKeabuan extends Citra{
         System.out.println("");
     }
     
-    public int[][] getP() {
+    public int[][] getPixel() {
         return p;
     }
-
+    
+    public double[][] getPixelDecimal(){
+        double[][] pixel = new double[this.p.length][this.p[0].length];
+        for(int i=0;i<pixel.length;i++){
+            for(int j=0;j<pixel[i].length;j++){
+                pixel[i][j] = this.p[i][j];
+            }
+        }
+        return pixel;
+    }
+    
     public void setP(int[][] p) {
         this.p = p;
     }

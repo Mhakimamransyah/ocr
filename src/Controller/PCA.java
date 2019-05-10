@@ -70,7 +70,7 @@ public class PCA {
         return zero_mean;
     }
     
-    private void cetakMatriks(double[][] M){
+    public void cetakMatriks(double[][] M){
         for(int i=0;i<M.length;i++){
             for(int j=0;j<M[i].length;j++){
                 System.out.print(M[i][j]+" ");

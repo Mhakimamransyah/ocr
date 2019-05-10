@@ -52,23 +52,23 @@ public class Main {
     
     public void displayHistogram(double[] data) {
         HistogramDataset dataset = new HistogramDataset();
-    dataset.addSeries("Histogram", data, 256);
-    String plotTitle = "Histogram";
-    String xaxis = "Pixel";
-    String yaxis = "Count";
-    PlotOrientation orientation = PlotOrientation.VERTICAL;
-    boolean show = true;
-    boolean toolTips = true;
-    boolean urls = false;
-    JFreeChart chart = ChartFactory.createHistogram(plotTitle, xaxis, yaxis, 
-            dataset, orientation, show, toolTips, urls);
-    ChartPanel chartPanel = new ChartPanel(chart);
-    JFrame f = new JFrame("HISTOGRAM");
-    f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    f.add(chartPanel);
-    f.pack();
-    f.setLocationRelativeTo(null);
-    f.setVisible(true);
+        dataset.addSeries("Histogram", data, 256);
+        String plotTitle = "Histogram";
+        String xaxis = "Pixel";
+        String yaxis = "Count";
+        PlotOrientation orientation = PlotOrientation.VERTICAL;
+        boolean show = true;
+        boolean toolTips = true;
+        boolean urls = false;
+        JFreeChart chart = ChartFactory.createHistogram(plotTitle, xaxis, yaxis, 
+                dataset, orientation, show, toolTips, urls);
+        ChartPanel chartPanel = new ChartPanel(chart);
+        JFrame f = new JFrame("HISTOGRAM");
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        f.add(chartPanel);
+        f.pack();
+        f.setLocationRelativeTo(null);
+        f.setVisible(true);
     }
     
     
@@ -159,12 +159,10 @@ public class Main {
             int index = 0;
             this.progress.setVisible(true);
             this.progress.setMaximum(this.file.listFiles().length-1);
-            System.out.println("JUMLAH FILE: " + file.listFiles().length);
             for(File f : file.listFiles()){
-                System.out.println(f.getName());
                 this.progress.setValue(index);
                 data = new Data();
-                data.setPlat_nomor(f.getName());
+                data.setPlat_nomor(f.getName().split("\\.")[0]);
                 citra = pra_proses.doBinerisasi(pra_proses.doInvers(pra_proses
                         .doGrayScale(new CitraWarna(ImageIO
                                 .read(f.getAbsoluteFile())))), f.getName());
@@ -180,7 +178,7 @@ public class Main {
         
         @Override
         protected void done(){
-          JOptionPane.showMessageDialog(null,"Prapengolahan citra selesai"," Selesai!!",JOptionPane.INFORMATION_MESSAGE);
+//          JOptionPane.showMessageDialog(null,"Prapengolahan citra selesai"," Selesai!!",JOptionPane.INFORMATION_MESSAGE);
           DefaultListModel list_model = new DefaultListModel();
           int no = 0;
           ImageIcon icon,new_icon;

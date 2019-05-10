@@ -623,6 +623,7 @@
                                 </Container>
                                 <Component class="javax.swing.JTextField" name="label_input_epcoh">
                                   <Properties>
+                                    <Property name="text" type="java.lang.String" value="500"/>
                                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                                       <Dimension value="[6, 2147483647]"/>
                                     </Property>
@@ -696,6 +697,7 @@
                                 </Container>
                                 <Component class="javax.swing.JTextField" name="label_input_learning_rate">
                                   <Properties>
+                                    <Property name="text" type="java.lang.String" value="0.2"/>
                                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                                       <Dimension value="[6, 2147483647]"/>
                                     </Property>
@@ -769,6 +771,7 @@
                                 </Container>
                                 <Component class="javax.swing.JTextField" name="label_input_hidden_layer">
                                   <Properties>
+                                    <Property name="text" type="java.lang.String" value="3"/>
                                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                                       <Dimension value="[6, 2147483647]"/>
                                     </Property>

@@ -80,10 +80,10 @@ public class Prapengolahan {
        int baris = gambar.getBaris();
        int kolom = gambar.getKolom();
        int new_p[][] = new int[baris][kolom];
-       int t = this.otsu(gambar.getP());
+       int t = this.otsu(gambar.getPixel());
        for(int i=0;i<baris;i++){
            for(int j=0;j<kolom;j++){
-             new_p[i][j] = this.treshold(gambar.getP()[i][j], t);
+             new_p[i][j] = this.treshold(gambar.getPixel()[i][j], t);
            }
        }
        new_p = this.horizontalBlackRunlengthFilter(new_p);
@@ -181,7 +181,7 @@ public class Prapengolahan {
        int new_p[][] = new int[baris][kolom];
        for(int i=0;i<baris;i++){
            for(int j=0;j<kolom;j++){
-             new_p[i][j] = 255-gambar.getP()[i][j]; //or G or B
+             new_p[i][j] = 255-gambar.getPixel()[i][j]; //or G or B
            }
        }
        CitraKeabuan gambar_2 = new CitraKeabuan(new_p);

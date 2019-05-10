@@ -71,7 +71,7 @@ public class ProfileProjection {
     public CitraKeabuan getProjectedImage() {
         System.out.println("PROJECTING IMAGE");
         
-        int[][] newPixels = this.citra.getP();
+        int[][] newPixels = this.citra.getPixel();
         newPixels = this.transposeMatrix(newPixels);
         
         newPixels = this.connectedFilter(newPixels);

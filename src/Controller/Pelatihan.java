@@ -5,10 +5,17 @@
  */
 package Controller;
 
+import Model.CitraKeabuan;
+import Model.CitraWarna;
 import Model.Data;
 import Model.NeuralNetwork.NeuralNetwork;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
@@ -59,29 +66,57 @@ public class Pelatihan extends SwingWorker{
         this.progress.setValue(0);
         this.mse.setText("0");
        
-        
-        this.progress.setString("Processing Profile Projection...");
-        // profile projection
-        Thread.sleep(1500);
-        //do profile proyection
-        
-        this.progress.setString("Processing PCA...");
-        // pca
-        Thread.sleep(1500);
-        // do pca
-        
-        
+     
         int iter = 0;
         double mse = 0;
         while(iter <= epoch){
             Thread.sleep(50);
             this.progress.setString(iter+" epoch");
+            PCA pca;
+            for(Data data : this.data_latih){
+                pca = new PCA();
+                File direktori = new File(new File("").getAbsolutePath()+"\\segments\\"+data.getPlat_nomor()+".JPG\\");
+                for(File f : direktori.listFiles()){
+                    try {
+                        CitraKeabuan citra = new Prapengolahan().doGrayScale(new CitraWarna(ImageIO.read(f.getAbsoluteFile())));
+//                        System.out.println("panjang : "+citra.getPixelDecimal().length);
+//                        System.out.println("lebar : "+citra.getPixelDecimal()[0].length);
+                        pca.tambah_matriks(citra.getPixelDecimal());
+                    } catch (IOException ex) {
+                        Logger.getLogger(Pelatihan.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    System.out.println("");
+                }
+                double hasil_pca[][] = pca.do_pca();
+            }
             this.mse.setText(mse+"");
             mse = (double)iter/(double)epoch;
             this.progress.setValue(iter);
             iter++;
         }
+        
         return null;
+    }
+    
+    private void setPCAmatriks(){
+       PCA pca;
+       for(Data data : this.data_latih){
+           pca = new PCA();
+           File direktori = new File(new File("").getAbsolutePath()+"\\segments\\"+data.getPlat_nomor()+".JPG\\");
+           for(File f : direktori.listFiles()){
+               try {
+                   CitraKeabuan citra = new Prapengolahan().doGrayScale(new CitraWarna(ImageIO.read(f.getAbsoluteFile())));
+                   System.out.println("panjang : "+citra.getPixelDecimal().length);
+                   System.out.println("lebar : "+citra.getPixelDecimal()[0].length);
+                   pca.tambah_matriks(citra.getPixelDecimal());
+               } catch (IOException ex) {
+                   Logger.getLogger(Pelatihan.class.getName()).log(Level.SEVERE, null, ex);
+               }
+               System.out.println("");
+           }
+           double hasil_pca[][] = pca.do_pca();
+           pca.cetakMatriks(hasil_pca);
+       }
     }
     
     
