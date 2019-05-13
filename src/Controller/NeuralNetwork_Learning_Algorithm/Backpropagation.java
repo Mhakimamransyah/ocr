@@ -30,7 +30,8 @@ public class Backpropagation {
         this.perubahanBobot();
     }
     
-    public void propagasiMaju(double data[], double[] target){
+    public double[] propagasiMaju(double data[], double[] target){
+        double res[] = new double[36];
         double temp = 0;
         for(int i=0;i<data.length;i++){
             this.nn.getInput_layer().getNeuron().get(i).setData_input(data[i]);
@@ -76,19 +77,24 @@ public class Backpropagation {
         if(target != null){
             int index_target = 0;
             double sum_error = 0,error;
+//            System.out.println("Output : ");
             for(Neuron neuron_output : this.nn.getOutput_layer().getNeuron()){
+//              System.out.print(neuron_output.getOutput()+" ");
               sum_error = sum_error + Math.pow(target[index_target]-neuron_output.getOutput(), 2);
               index_target++;
             }
+//            System.out.println("");
+//            System.out.println("Output");
             error = sum_error/this.nn.getOutput_layer().getNneuron();
             this.nn.setError(sum_error);   
         }else{
+            int i=0;
             for(Neuron neuron_output : this.nn.getOutput_layer().getNeuron()){
-              
-                System.out.print(Math.round(neuron_output.getOutput())+" ");
+               res[i] = neuron_output.getOutput();
+               i++;
             }
-            System.out.println("");
         }
+        return res;
     }
     
     private void propagasiBalik(double[] target){

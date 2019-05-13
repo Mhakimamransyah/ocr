@@ -56,17 +56,14 @@ public class Home extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         list_image = new javax.swing.JList<>();
         jPanel4 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        label_jumlah_data = new javax.swing.JLabel();
         train_management = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        profil_proy_panel = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
         training_result = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         label_mse = new javax.swing.JLabel();
-        label_waktu = new javax.swing.JLabel();
         prog_bar = new javax.swing.JPanel();
         progress_bar_pelatihan = new javax.swing.JProgressBar();
         train_konfig = new javax.swing.JPanel();
@@ -85,11 +82,15 @@ public class Home extends javax.swing.JFrame {
         jPanel12 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         label_input_hidden_layer = new javax.swing.JTextField();
+        epoch4 = new javax.swing.JPanel();
+        jPanel13 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        label_input_node_input = new javax.swing.JTextField();
         jPanel10 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         do_pelatihan = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
+        panel_pengujian = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Optical Character Recognition");
@@ -159,6 +160,7 @@ public class Home extends javax.swing.JFrame {
         pilih_folder.setLayout(new java.awt.BorderLayout());
 
         folder_chooser.setText("Pilih Folder");
+        folder_chooser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         folder_chooser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 folder_chooserActionPerformed(evt);
@@ -207,15 +209,31 @@ public class Home extends javax.swing.JFrame {
 
         data_management.add(image_panel);
 
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel1.setText("Jumlah Data :");
+
+        label_jumlah_data.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        label_jumlah_data.setText("0");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 356, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(label_jumlah_data, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(132, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 59, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(label_jumlah_data))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         data_management.add(jPanel4);
@@ -228,30 +246,9 @@ public class Home extends javax.swing.JFrame {
 
         jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.PAGE_AXIS));
 
-        profil_proy_panel.setPreferredSize(new java.awt.Dimension(453, 15));
-        profil_proy_panel.setLayout(new java.awt.BorderLayout());
-
-        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-
-        jList2.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1 ", "Item 2" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jList2.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jList2.setLayoutOrientation(javax.swing.JList.HORIZONTAL_WRAP);
-        jList2.setSelectedIndex(1);
-        jList2.setVisibleRowCount(1);
-        jScrollPane1.setViewportView(jList2);
-
-        profil_proy_panel.add(jScrollPane1, java.awt.BorderLayout.CENTER);
-
-        jPanel1.add(profil_proy_panel);
-
         training_result.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         training_result.setMaximumSize(new java.awt.Dimension(2147483647, 100));
-        training_result.setPreferredSize(new java.awt.Dimension(453, 100));
+        training_result.setPreferredSize(new java.awt.Dimension(453, 150));
         training_result.setLayout(new java.awt.BorderLayout());
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Hasil Pelatihan", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 0, 11))); // NOI18N
@@ -259,40 +256,27 @@ public class Home extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         jLabel2.setText("MSE");
 
-        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
-        jLabel3.setText("Waktu");
-
-        label_mse.setText("jLabel7");
-
-        label_waktu.setText("not finished yet");
+        label_mse.setText("0.0");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(194, 194, 194)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(77, 77, 77)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(label_mse, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
-                    .addComponent(label_waktu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(189, 189, 189)
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(label_mse, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(99, 99, 99))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(52, 52, 52)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(label_mse))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(label_waktu))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         training_result.add(jPanel2, java.awt.BorderLayout.CENTER);
@@ -313,7 +297,7 @@ public class Home extends javax.swing.JFrame {
         jPanel1.add(prog_bar);
 
         train_konfig.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        train_konfig.setPreferredSize(new java.awt.Dimension(453, 50));
+        train_konfig.setPreferredSize(new java.awt.Dimension(453, 20));
         train_konfig.setLayout(new java.awt.BorderLayout());
 
         jPanel5.setLayout(new javax.swing.BoxLayout(jPanel5, javax.swing.BoxLayout.PAGE_AXIS));
@@ -364,12 +348,13 @@ public class Home extends javax.swing.JFrame {
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+            .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
         );
 
         epoch1.add(jPanel8, java.awt.BorderLayout.LINE_START);
 
-        label_input_epcoh.setText("500");
+        label_input_epcoh.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        label_input_epcoh.setText("100");
         label_input_epcoh.setMaximumSize(new java.awt.Dimension(6, 2147483647));
         epoch1.add(label_input_epcoh, java.awt.BorderLayout.CENTER);
 
@@ -397,11 +382,12 @@ public class Home extends javax.swing.JFrame {
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+            .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
         );
 
         epoch2.add(jPanel9, java.awt.BorderLayout.LINE_START);
 
+        label_input_learning_rate.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         label_input_learning_rate.setText("0.2");
         label_input_learning_rate.setMaximumSize(new java.awt.Dimension(6, 2147483647));
         epoch2.add(label_input_learning_rate, java.awt.BorderLayout.CENTER);
@@ -417,7 +403,7 @@ public class Home extends javax.swing.JFrame {
         jPanel12.setPreferredSize(new java.awt.Dimension(101, 46));
 
         jLabel17.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
-        jLabel17.setText("Hidden Layer");
+        jLabel17.setText("Node Hidden");
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -430,23 +416,59 @@ public class Home extends javax.swing.JFrame {
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+            .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
         );
 
         epoch3.add(jPanel12, java.awt.BorderLayout.LINE_START);
 
+        label_input_hidden_layer.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         label_input_hidden_layer.setText("3");
         label_input_hidden_layer.setMaximumSize(new java.awt.Dimension(6, 2147483647));
         epoch3.add(label_input_hidden_layer, java.awt.BorderLayout.CENTER);
 
         jPanel5.add(epoch3);
 
-        jPanel10.setPreferredSize(new java.awt.Dimension(400, 28));
+        epoch4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        epoch4.setPreferredSize(new java.awt.Dimension(400, 50));
+        epoch4.setLayout(new java.awt.BorderLayout());
+
+        jPanel13.setMaximumSize(new java.awt.Dimension(101, 32767));
+        jPanel13.setMinimumSize(new java.awt.Dimension(101, 0));
+        jPanel13.setPreferredSize(new java.awt.Dimension(101, 46));
+
+        jLabel19.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        jLabel19.setText("Node Input");
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
+        );
+
+        epoch4.add(jPanel13, java.awt.BorderLayout.LINE_START);
+
+        label_input_node_input.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        label_input_node_input.setText("8");
+        label_input_node_input.setMaximumSize(new java.awt.Dimension(6, 2147483647));
+        epoch4.add(label_input_node_input, java.awt.BorderLayout.CENTER);
+
+        jPanel5.add(epoch4);
+
+        jPanel10.setPreferredSize(new java.awt.Dimension(400, 7));
         jPanel10.setLayout(new javax.swing.BoxLayout(jPanel10, javax.swing.BoxLayout.LINE_AXIS));
 
         jPanel7.setLayout(new java.awt.BorderLayout());
 
         do_pelatihan.setText("Mulai Pelatihan");
+        do_pelatihan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         do_pelatihan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 do_pelatihanActionPerformed(evt);
@@ -458,13 +480,14 @@ public class Home extends javax.swing.JFrame {
 
         jPanel6.setLayout(new java.awt.BorderLayout());
 
-        jButton2.setText("Mulai Pengujian");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        panel_pengujian.setText("Mulai Pengujian");
+        panel_pengujian.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        panel_pengujian.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                panel_pengujianActionPerformed(evt);
             }
         });
-        jPanel6.add(jButton2, java.awt.BorderLayout.CENTER);
+        jPanel6.add(panel_pengujian, java.awt.BorderLayout.CENTER);
 
         jPanel10.add(jPanel6);
 
@@ -488,7 +511,7 @@ public class Home extends javax.swing.JFrame {
 
     private void folder_chooserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_folder_chooserActionPerformed
         try {
-            this.main.muatCitra("Data Latih",this.panel_pelatihan,this.progres_muat_citra,this.lokasi_direktori,this.list_image);
+            this.main.muatCitra("Data Latih",this.panel_pelatihan,this.progres_muat_citra,this.lokasi_direktori,this.list_image,this.label_jumlah_data);
         } catch (IOException ex) {
             Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -503,12 +526,13 @@ public class Home extends javax.swing.JFrame {
         konfig.put("Epoch", this.label_input_epcoh.getText());
         konfig.put("Learning_rate", this.label_input_learning_rate.getText());
         konfig.put("Hidden_layer", this.label_input_hidden_layer.getText());
-        this.main.mulai_pelatihan(konfig,this.progress_bar_pelatihan, this.label_mse, this.label_waktu, this.do_pelatihan);
+        konfig.put("Input_layer", this.label_input_node_input.getText());
+        this.main.mulai_pelatihan(konfig,this.progress_bar_pelatihan, this.label_mse, this.do_pelatihan);
     }//GEN-LAST:event_do_pelatihanActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void panel_pengujianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_panel_pengujianActionPerformed
+        this.main.tampilkanPanelPengujian();
+    }//GEN-LAST:event_panel_pengujianActionPerformed
 
     /**
      * @param args the command line arguments
@@ -551,9 +575,10 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel epoch1;
     private javax.swing.JPanel epoch2;
     private javax.swing.JPanel epoch3;
+    private javax.swing.JPanel epoch4;
     private javax.swing.JButton folder_chooser;
     private javax.swing.JPanel image_panel;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -561,13 +586,13 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JList<String> jList2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -576,21 +601,21 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField label_input_epcoh;
     private javax.swing.JTextField label_input_hidden_layer;
     private javax.swing.JTextField label_input_learning_rate;
+    private javax.swing.JTextField label_input_node_input;
+    private javax.swing.JLabel label_jumlah_data;
     private javax.swing.JLabel label_mse;
-    private javax.swing.JLabel label_waktu;
     private javax.swing.JList<String> list_image;
     private javax.swing.JLabel lokasi_direktori;
     private javax.swing.JPanel panel_home;
     private javax.swing.JPanel panel_pelatihan;
+    private javax.swing.JButton panel_pengujian;
     private javax.swing.JPanel pilih_folder;
-    private javax.swing.JPanel profil_proy_panel;
     private javax.swing.JPanel prog_bar;
     private javax.swing.JProgressBar progres_muat_citra;
     private javax.swing.JProgressBar progress_bar_pelatihan;

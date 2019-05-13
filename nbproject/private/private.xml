@@ -5,18 +5,20 @@
             <url>src/Controller/Pelatihan.java</url>
             <bookmark id="1">
                 <name/>
-                <line>102</line>
+                <line>227</line>
                 <key/>
             </bookmark>
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/E:/PROYEK-SKRIPSI/OCR/OCR/src/Controller/CitraLoader.java</file>
             <file>file:/E:/PROYEK-SKRIPSI/OCR/OCR/src/Controller/PCA.java</file>
-            <file>file:/E:/PROYEK-SKRIPSI/OCR/OCR/src/Model/CitraKeabuan.java</file>
+            <file>file:/E:/PROYEK-SKRIPSI/OCR/OCR/src/Controller/Pengujian.java</file>
             <file>file:/E:/PROYEK-SKRIPSI/OCR/OCR/src/Controller/Main.java</file>
+            <file>file:/E:/PROYEK-SKRIPSI/OCR/OCR/src/View/Home.java</file>
+            <file>file:/E:/PROYEK-SKRIPSI/OCR/OCR/src/View/Panel_pengujian.java</file>
             <file>file:/E:/PROYEK-SKRIPSI/OCR/OCR/src/Controller/Pelatihan.java</file>
-            <file>file:/E:/PROYEK-SKRIPSI/OCR/OCR/src/Model/Data.java</file>
         </group>
     </open-files>
 </project-private>
