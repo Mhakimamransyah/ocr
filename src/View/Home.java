@@ -62,8 +62,17 @@ public class Home extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         training_result = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        jPanel15 = new javax.swing.JPanel();
+        jPanel16 = new javax.swing.JPanel();
+        jPanel19 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jPanel18 = new javax.swing.JPanel();
         label_mse = new javax.swing.JLabel();
+        jPanel17 = new javax.swing.JPanel();
+        jPanel20 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jPanel21 = new javax.swing.JPanel();
+        label_waktu = new javax.swing.JLabel();
         prog_bar = new javax.swing.JPanel();
         progress_bar_pelatihan = new javax.swing.JProgressBar();
         train_konfig = new javax.swing.JPanel();
@@ -95,13 +104,15 @@ public class Home extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Optical Character Recognition");
 
+        jTabbedPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
         jLabel13.setFont(new java.awt.Font("Century Gothic", 0, 48)); // NOI18N
         jLabel13.setText("Pengenalan Karakter Optik");
 
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         jLabel15.setText("Backpropagation");
 
-        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         jLabel18.setText("- Profile Projection");
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
@@ -133,7 +144,7 @@ public class Home extends javax.swing.JFrame {
                         .addComponent(jLabel15)
                         .addComponent(jLabel18))
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(270, Short.MAX_VALUE))
+                .addContainerGap(268, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Home", panel_home);
@@ -159,8 +170,10 @@ public class Home extends javax.swing.JFrame {
         pilih_folder.setPreferredSize(new java.awt.Dimension(301, 10));
         pilih_folder.setLayout(new java.awt.BorderLayout());
 
-        folder_chooser.setText("Pilih Folder");
+        folder_chooser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/browse.png"))); // NOI18N
+        folder_chooser.setText(" Data");
         folder_chooser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        folder_chooser.setFocusPainted(false);
         folder_chooser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 folder_chooserActionPerformed(evt);
@@ -172,7 +185,7 @@ public class Home extends javax.swing.JFrame {
         jPanel3.setMinimumSize(new java.awt.Dimension(156, 100));
 
         lokasi_direktori.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
-        lokasi_direktori.setText("direktori");
+        lokasi_direktori.setText("-");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -181,7 +194,7 @@ public class Home extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(lokasi_direktori)
-                .addContainerGap(207, Short.MAX_VALUE))
+                .addContainerGap(245, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,7 +223,7 @@ public class Home extends javax.swing.JFrame {
         data_management.add(image_panel);
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jLabel1.setText("Jumlah Data :");
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/data_icon.png"))); // NOI18N
 
         label_jumlah_data.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         label_jumlah_data.setText("0");
@@ -221,18 +234,18 @@ public class Home extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(label_jumlah_data, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addContainerGap(222, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(label_jumlah_data))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(label_jumlah_data)
+                    .addComponent(jLabel1))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -252,32 +265,63 @@ public class Home extends javax.swing.JFrame {
         training_result.setLayout(new java.awt.BorderLayout());
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Hasil Pelatihan", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 0, 11))); // NOI18N
+        jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.PAGE_AXIS));
 
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        jPanel15.setLayout(new javax.swing.BoxLayout(jPanel15, javax.swing.BoxLayout.PAGE_AXIS));
+
+        jPanel16.setLayout(new javax.swing.BoxLayout(jPanel16, javax.swing.BoxLayout.LINE_AXIS));
+
+        jPanel19.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel19.setPreferredSize(new java.awt.Dimension(50, 122));
+        jPanel19.setLayout(new java.awt.BorderLayout());
+
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("MSE");
+        jPanel19.add(jLabel2, java.awt.BorderLayout.CENTER);
 
-        label_mse.setText("0.0");
+        jPanel16.add(jPanel19);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(189, 189, 189)
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(label_mse, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(99, 99, 99))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(label_mse))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jPanel18.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel18.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel18.setPreferredSize(new java.awt.Dimension(50, 122));
+        jPanel18.setLayout(new java.awt.BorderLayout());
+
+        label_mse.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_mse.setText("0");
+        jPanel18.add(label_mse, java.awt.BorderLayout.CENTER);
+
+        jPanel16.add(jPanel18);
+
+        jPanel15.add(jPanel16);
+
+        jPanel17.setLayout(new javax.swing.BoxLayout(jPanel17, javax.swing.BoxLayout.LINE_AXIS));
+
+        jPanel20.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel20.setPreferredSize(new java.awt.Dimension(50, 122));
+        jPanel20.setLayout(new java.awt.BorderLayout());
+
+        jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Waktu");
+        jPanel20.add(jLabel4, java.awt.BorderLayout.CENTER);
+
+        jPanel17.add(jPanel20);
+
+        jPanel21.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel21.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel21.setPreferredSize(new java.awt.Dimension(50, 122));
+        jPanel21.setLayout(new java.awt.BorderLayout());
+
+        label_waktu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_waktu.setText("0");
+        jPanel21.add(label_waktu, java.awt.BorderLayout.CENTER);
+
+        jPanel17.add(jPanel21);
+
+        jPanel15.add(jPanel17);
+
+        jPanel2.add(jPanel15);
 
         training_result.add(jPanel2, java.awt.BorderLayout.CENTER);
 
@@ -304,24 +348,25 @@ public class Home extends javax.swing.JFrame {
 
         title.setPreferredSize(new java.awt.Dimension(400, 50));
 
-        jLabel12.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
-        jLabel12.setText("Konfigurasi Parameter Backpropagation");
+        jLabel12.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/setting.png"))); // NOI18N
+        jLabel12.setText("Backpropagation");
 
         javax.swing.GroupLayout titleLayout = new javax.swing.GroupLayout(title);
         title.setLayout(titleLayout);
         titleLayout.setHorizontalGroup(
             titleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(titleLayout.createSequentialGroup()
-                .addGap(166, 166, 166)
-                .addComponent(jLabel12)
-                .addContainerGap(173, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, titleLayout.createSequentialGroup()
+                .addGap(217, 217, 217)
+                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+                .addGap(184, 184, 184))
         );
         titleLayout.setVerticalGroup(
             titleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(titleLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel12)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         jPanel5.add(title);
@@ -354,7 +399,7 @@ public class Home extends javax.swing.JFrame {
         epoch1.add(jPanel8, java.awt.BorderLayout.LINE_START);
 
         label_input_epcoh.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        label_input_epcoh.setText("100");
+        label_input_epcoh.setText("5000");
         label_input_epcoh.setMaximumSize(new java.awt.Dimension(6, 2147483647));
         epoch1.add(label_input_epcoh, java.awt.BorderLayout.CENTER);
 
@@ -388,7 +433,7 @@ public class Home extends javax.swing.JFrame {
         epoch2.add(jPanel9, java.awt.BorderLayout.LINE_START);
 
         label_input_learning_rate.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        label_input_learning_rate.setText("0.2");
+        label_input_learning_rate.setText("0.5");
         label_input_learning_rate.setMaximumSize(new java.awt.Dimension(6, 2147483647));
         epoch2.add(label_input_learning_rate, java.awt.BorderLayout.CENTER);
 
@@ -422,7 +467,7 @@ public class Home extends javax.swing.JFrame {
         epoch3.add(jPanel12, java.awt.BorderLayout.LINE_START);
 
         label_input_hidden_layer.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        label_input_hidden_layer.setText("3");
+        label_input_hidden_layer.setText("20");
         label_input_hidden_layer.setMaximumSize(new java.awt.Dimension(6, 2147483647));
         epoch3.add(label_input_hidden_layer, java.awt.BorderLayout.CENTER);
 
@@ -456,7 +501,7 @@ public class Home extends javax.swing.JFrame {
         epoch4.add(jPanel13, java.awt.BorderLayout.LINE_START);
 
         label_input_node_input.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        label_input_node_input.setText("8");
+        label_input_node_input.setText("26");
         label_input_node_input.setMaximumSize(new java.awt.Dimension(6, 2147483647));
         epoch4.add(label_input_node_input, java.awt.BorderLayout.CENTER);
 
@@ -467,7 +512,8 @@ public class Home extends javax.swing.JFrame {
 
         jPanel7.setLayout(new java.awt.BorderLayout());
 
-        do_pelatihan.setText("Mulai Pelatihan");
+        do_pelatihan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/start.png"))); // NOI18N
+        do_pelatihan.setText("Pelatihan");
         do_pelatihan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         do_pelatihan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -480,8 +526,10 @@ public class Home extends javax.swing.JFrame {
 
         jPanel6.setLayout(new java.awt.BorderLayout());
 
-        panel_pengujian.setText("Mulai Pengujian");
+        panel_pengujian.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/start.png"))); // NOI18N
+        panel_pengujian.setText("Pengujian");
         panel_pengujian.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        panel_pengujian.setFocusPainted(false);
         panel_pengujian.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 panel_pengujianActionPerformed(evt);
@@ -527,7 +575,7 @@ public class Home extends javax.swing.JFrame {
         konfig.put("Learning_rate", this.label_input_learning_rate.getText());
         konfig.put("Hidden_layer", this.label_input_hidden_layer.getText());
         konfig.put("Input_layer", this.label_input_node_input.getText());
-        this.main.mulai_pelatihan(konfig,this.progress_bar_pelatihan, this.label_mse, this.do_pelatihan);
+        this.main.mulai_pelatihan(konfig,this.progress_bar_pelatihan, this.label_mse,this.label_waktu , this.do_pelatihan);
     }//GEN-LAST:event_do_pelatihanActionPerformed
 
     private void panel_pengujianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_panel_pengujianActionPerformed
@@ -588,12 +636,20 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel20;
+    private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -610,6 +666,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JTextField label_input_node_input;
     private javax.swing.JLabel label_jumlah_data;
     private javax.swing.JLabel label_mse;
+    private javax.swing.JLabel label_waktu;
     private javax.swing.JList<String> list_image;
     private javax.swing.JLabel lokasi_direktori;
     private javax.swing.JPanel panel_home;

@@ -10,9 +10,11 @@ import Model.CitraKeabuan;
 import Model.CitraWarna;
 import Model.Data;
 import Model.NeuralNetwork.NeuralNetwork;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import static java.lang.System.exit;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Level;
@@ -20,7 +22,7 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
+
 import javax.swing.JProgressBar;
 import javax.swing.SwingWorker;
 
@@ -34,7 +36,7 @@ public class Pelatihan extends SwingWorker{
     private PCA pca;
     private ArrayList<Data> data_latih;
     private JProgressBar progress;
-    private JLabel mse;
+    private JLabel mse,waktu;
     private JButton do_learn;
     private HashMap<String, String> konfigurasi_nn;
     boolean inTraining = false;
@@ -56,8 +58,9 @@ public class Pelatihan extends SwingWorker{
         this.data_latih = data;
     }
     
-    public void setLabel(JLabel mse,JButton do_learn){
+    public void setLabel(JLabel mse,JLabel waktu,JButton do_learn){
         this.mse = mse;
+        this.waktu = waktu;
         this.do_learn = do_learn;
     }
     
@@ -72,13 +75,14 @@ public class Pelatihan extends SwingWorker{
 
     @Override
     protected Object doInBackground() throws Exception {
-        
+        long waktu_eksekusi   = System.currentTimeMillis();
         this.inTraining = true;
         this.nn               = new NeuralNetwork(this.getHiddenLayerNumber(this.konfigurasi_nn.get("Hidden_layer")),Integer.parseInt(this.konfigurasi_nn.get("Input_layer")),36);
         int epoch             = Integer.parseInt(this.konfigurasi_nn.get("Epoch"));
         double learning_rate  = Double.parseDouble(this.konfigurasi_nn.get("Learning_rate"));
         this.progress.setMaximum(epoch-1);
         this.do_learn.setText("Proses Sedang Berjalan");
+        this.waktu.setText(" meng-eksekusi...");
         this.do_learn.setEnabled(false);
         this.progress.setValue(0);
         this.mse.setText("0");
@@ -88,52 +92,54 @@ public class Pelatihan extends SwingWorker{
         int iter = 1;
         double jumlah_segmen = 0;
         double error;
+        int index_file;
         double mse = 0;
         while(iter <= epoch){
             this.progress.setString(iter+" epoch");
-            PCA pca;
             error = 0;
             jumlah_segmen = 0;
             for(Data data : this.data_latih){
-                pca = new PCA();
+                index_file = 0;
                 File direktori = new File(new File("").getAbsolutePath()+"\\segments\\"+data.getPlat_nomor()+".JPG\\");
                 for(File f : direktori.listFiles()){
                     try {
                         CitraKeabuan citra = pra_proses.doBinerisasi(pra_proses.doInvers(pra_proses
                         .doGrayScale(new CitraWarna(ImageIO
                                 .read(f.getAbsoluteFile())))), f.getName());
-//                        citra = pra_proses.doInvers(citra);
-                        pca.tambah_matriks(this.normalisasiCitra(citra.getPixelDecimal()));
-                       
+                          double[][] input = this.normalisasiCitra(this.resizeImage(citra).getPixelDecimal());
+                          double input_vektor[] = this.getImageVektor(input);
+                          bp.learn(input_vektor, this.getTargetValue(data, index_file));
+//                       
+                          error = error + bp.getNn().getError();                        
                     } catch (IOException ex) {
                         Logger.getLogger(Pelatihan.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     jumlah_segmen++;
-                }
-                double hasil_pca[][] = pca.do_pca();
-               
-                
-                double temp_input[];
-                for(int i=0;i<hasil_pca[0].length;i++){
-                    temp_input = new double[hasil_pca.length];
-                    for(int j=0;j<hasil_pca.length;j++){
-                        temp_input[j] = hasil_pca[j][i];
-                        
-                    }
-                  
-                    bp.learn(temp_input, this.getTargetValue(data, i));
-                    error = error + bp.getNn().getError();
+                    index_file++;
                 }
             }
             mse = error/(this.data_latih.size()*jumlah_segmen);
 //            System.out.println("MSE : "+mse);
             this.mse.setText(mse+"");
+            
             mse = (double)iter/(double)epoch;
             this.progress.setValue(iter);
             iter++;
         }
-        
+        this.waktu.setText(((double)(System.currentTimeMillis()-waktu_eksekusi)/1000)+" detik");
         return null;
+    }
+    
+    private CitraKeabuan resizeImage(CitraKeabuan citra){
+       CitraKeabuan citra_baru;
+       BufferedImage img = citra.getImg();
+       Image tmp = img.getScaledInstance(5,5, Image.SCALE_SMOOTH);
+       BufferedImage dimg = new BufferedImage(5, 5, BufferedImage.TYPE_INT_ARGB);
+       Graphics2D g2d = dimg.createGraphics();
+       g2d.drawImage(tmp, 0, 0, null);
+       g2d.dispose();
+       citra_baru = new CitraKeabuan(dimg);
+       return citra_baru;
     }
     
     private void oprekNN(){
@@ -164,17 +170,24 @@ public class Pelatihan extends SwingWorker{
         System.out.println("test manual 0 0 => "+Math.round(bp.propagasiMaju(new double[]{1,1}, null)[0]));
     }
     
-    private void getImageVektor(int[][] V){
-        double vektor[] = new double[V.length];
+    private double[] getImageVektor(double[][] V){
+        double vektor[] = new double[(V.length*V[0].length)+1];
         
-        int index_vektor = 0;
+        int index_vektor = 1;
+        vektor[0] = 1;
         for(int i=0;i<V.length;i++){
             for(int j=0;j<V[i].length;j++){
                 vektor[index_vektor] = V[i][j];
-                System.out.print(vektor[index_vektor]+" ");
                 index_vektor++;
             }
         }
+//        System.out.println("Vektor");
+//        for(int i=0;i<vektor.length;i++){
+//            System.out.print(vektor[i]+",");
+//        }
+
+        
+        return vektor;
     }
     
    private double[][] normalisasiCitra(double input[][]){
@@ -228,8 +241,9 @@ public class Pelatihan extends SwingWorker{
       char[] plat_nomor = data.getPlat_nomor().toCharArray();
 //    System.out.println("karakter : "+plat_nomor[index]+" ");
       if(data.getPlat_nomor().toCharArray().length > index){
+//          System.out.println("karakter : "+plat_nomor[index]);
           switch(plat_nomor[index]){
-       
+          
           case '0' :  value[0]=1; break;
           case '1' :  value[1]=1; break;
           case '2' :  value[2]=1; break;

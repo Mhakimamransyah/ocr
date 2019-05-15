@@ -8,14 +8,9 @@ package Controller;
 import Model.CitraKeabuan;
 import Model.CitraWarna;
 import Model.Data;
-import java.awt.Graphics2D;
 import java.awt.Image;
-import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
@@ -51,23 +46,6 @@ public class CitraLoader extends SwingWorker {
         this.list_image = list_image;
     }
     
-    private void resizingImage() throws IOException{
-        if(this.kumpulan_data.size() > 0){
-            for(Data data : this.kumpulan_data){
-                File direktori = new File(new File("").getAbsolutePath()+"\\segments\\"+data.getPlat_nomor()+".JPG\\");
-                for(File f : direktori.listFiles()){
-                    BufferedImage img = ImageIO.read(f);
-                    Image tmp = img.getScaledInstance(25,25, Image.SCALE_SMOOTH);
-                    BufferedImage dimg = new BufferedImage(25, 25, BufferedImage.TYPE_INT_ARGB);
-                    Graphics2D g2d = dimg.createGraphics();
-                    g2d.drawImage(tmp, 0, 0, null);
-                    g2d.dispose();
-                    ImageIO.write(dimg, "png",new File(direktori.getAbsolutePath()+"/"+f.getName()));
-                }
-            }
-        }
-    }
-
     @Override
     protected Object doInBackground() throws Exception {
          Data data;
@@ -109,11 +87,7 @@ public class CitraLoader extends SwingWorker {
           }
           this.list_image.setModel(list_model);
           this.list_image.setVisibleRowCount(0);
-            try {
-                this.resizingImage();
-            } catch (IOException ex) {
-                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-            }
+         
         }
     
 }

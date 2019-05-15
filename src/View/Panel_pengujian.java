@@ -66,7 +66,7 @@ public class Panel_pengujian extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Panel Pengujian");
-        setPreferredSize(new java.awt.Dimension(750, 630));
+        setPreferredSize(new java.awt.Dimension(700, 610));
 
         jPanel1.setLayout(new java.awt.BorderLayout());
 
@@ -91,7 +91,8 @@ public class Panel_pengujian extends javax.swing.JFrame {
         pilih_folder.setPreferredSize(new java.awt.Dimension(301, 10));
         pilih_folder.setLayout(new java.awt.BorderLayout());
 
-        folder_chooser.setText("Pilih Folder");
+        folder_chooser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/browse.png"))); // NOI18N
+        folder_chooser.setText(" Data");
         folder_chooser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         folder_chooser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,7 +105,7 @@ public class Panel_pengujian extends javax.swing.JFrame {
         jPanel3.setMinimumSize(new java.awt.Dimension(156, 100));
 
         lokasi_direktori.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
-        lokasi_direktori.setText("direktori");
+        lokasi_direktori.setText("-");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -113,7 +114,7 @@ public class Panel_pengujian extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(lokasi_direktori)
-                .addContainerGap(282, Short.MAX_VALUE))
+                .addContainerGap(319, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,7 +143,7 @@ public class Panel_pengujian extends javax.swing.JFrame {
         data_management.add(image_panel);
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jLabel2.setText("Jumlah Data :");
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/data_icon.png"))); // NOI18N
 
         label_jumlah_data.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         label_jumlah_data.setText("0");
@@ -153,16 +154,16 @@ public class Panel_pengujian extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(label_jumlah_data, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(163, Short.MAX_VALUE))
+                .addContainerGap(264, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
                     .addComponent(label_jumlah_data))
                 .addContainerGap(20, Short.MAX_VALUE))
@@ -229,6 +230,7 @@ public class Panel_pengujian extends javax.swing.JFrame {
         btn_mulai_pengujian.setPreferredSize(new java.awt.Dimension(453, 50));
         btn_mulai_pengujian.setLayout(new java.awt.BorderLayout());
 
+        do_pengujian.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/start.png"))); // NOI18N
         do_pengujian.setText("Uji Neural Network");
         do_pengujian.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         do_pengujian.addActionListener(new java.awt.event.ActionListener() {

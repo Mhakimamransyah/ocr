@@ -10,6 +10,9 @@ import Model.CitraKeabuan;
 import Model.CitraWarna;
 import Model.Data;
 import Model.NeuralNetwork.NeuralNetwork;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.text.DecimalFormat;
@@ -53,33 +56,38 @@ public class Pengujian {
         Backpropagation bp    = new Backpropagation(this.nn,0.0); 
         int index_data_ke=0;
         for(Data data : this.data_uji){
-            pca = new PCA();
+//            pca = new PCA();
             File direktori = new File(new File("").getAbsolutePath()+"\\segments\\"+data.getPlat_nomor()+".JPG\\");
+            String plat = "";
             for(File f : direktori.listFiles()){
                try {
                    CitraKeabuan citra = pra_proses.doBinerisasi(pra_proses.doInvers(pra_proses
                         .doGrayScale(new CitraWarna(ImageIO
                                 .read(f.getAbsoluteFile())))), f.getName());
-//                        citra = pra_proses.doInvers(citra);
-                   pca.tambah_matriks(this.normalisasiCitra(citra.getPixelDecimal()));
+//                   pca.tambah_matriks(this.normalisasiCitra(citra.getPixelDecimal()));
+                   double[][] input = this.normalisasiCitra(this.resizeImage(citra).getPixelDecimal());
+                    double input_vektor[] = this.getImageVektor(input);
+                    plat = plat + this.getCharacter(bp.propagasiMaju(input_vektor, null));
                 } catch (IOException ex) {
                     Logger.getLogger(Pelatihan.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            }
-            double hasil_pca[][] = pca.do_pca();
-            double temp_input[];
-            String plat = "";
-            for(int i=0;i<hasil_pca[0].length;i++){
-                temp_input = new double[hasil_pca.length];
-                for(int j=0;j<hasil_pca.length;j++){
-                    temp_input[j] = hasil_pca[j][i];
-                }
-                plat = plat + this.getCharacter(bp.propagasiMaju(temp_input, null));
             }
             this.setTabelIdentifikasi(data.getPlat_nomor(), plat, index_data_ke);
             index_data_ke++;
         }
         this.label_rerata_akurasi.setText(new DecimalFormat("#.##").format((this.rerata_akurasi/this.data_uji.size()))+" %");
+    }
+    
+    private CitraKeabuan resizeImage(CitraKeabuan citra){
+       CitraKeabuan citra_baru;
+       BufferedImage img = citra.getImg();
+       Image tmp = img.getScaledInstance(5,5, Image.SCALE_SMOOTH);
+       BufferedImage dimg = new BufferedImage(5, 5, BufferedImage.TYPE_INT_ARGB);
+       Graphics2D g2d = dimg.createGraphics();
+       g2d.drawImage(tmp, 0, 0, null);
+       g2d.dispose();
+       citra_baru = new CitraKeabuan(dimg);
+       return citra_baru;
     }
     
      private double[][] normalisasiCitra(double input[][]){
@@ -89,8 +97,11 @@ public class Pengujian {
         for(int i=0;i<input.length;i++){
            for(int j=0;j<input[i].length;j++){
                new_input[i][j] = (input[i][j]-min)/(max-min);
+//               System.out.print(new_input[i][j]+" ");
            }
+//            System.out.println("");
         }
+//         System.out.println("");
         return new_input;
     }
      
@@ -116,16 +127,23 @@ public class Pengujian {
         return new_input;
     }
      
-      private double[] getImageVektor(int[][] V){
-        double vektor[] = new double[(V.length*V.length)+1];
-        vektor[0] = 255;
+      private double[] getImageVektor(double [][] V){
+        double vektor[] = new double[(V.length*V[0].length)+1];
+        vektor[0] = 1;
         int index_vektor = 1;
         for(int i=0;i<V.length;i++){
             for(int j=0;j<V[i].length;j++){
                 vektor[index_vektor] = V[i][j];
+                index_vektor++;
             }
         }
-        return this.normalisasi(vektor);
+        
+//        for(int i=0;i<vektor.length;i++)
+//        {
+//            System.out.print(vektor[i]+",");    
+//        }
+//          System.out.println("");
+        return vektor;
     }
     
     private void setTabelIdentifikasi(String aktual, String output,int index){
@@ -164,7 +182,12 @@ public class Pengujian {
     
     private String getCharacter(double output[]){
        String character = "";
-       double max = -999999;
+//        System.out.println("Output");
+//        for(int i=0;i<output.length;i++){
+//            System.out.print(output[i]+" ");
+//        }
+//        System.out.println("");
+       double max = output[0];
        int index=0;
        for(int i=0;i<output.length;i++){
            if(output[i] > max){
@@ -172,6 +195,7 @@ public class Pengujian {
                index = i;
            }
        }
+//       System.out.println("Index terbesar : "+index);
        for(int i=0;i<output.length;i++){
            if(i == index){
                output[i] = 1;
@@ -217,6 +241,7 @@ public class Pengujian {
            case 34: character = "Y"; break; 
            case 35: character = "Z"; break; 
        }
+//        System.out.println("Karakter : "+character);
        return character;
     }
     

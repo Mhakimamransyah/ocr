@@ -74,13 +74,13 @@ public class Main {
        h.setVisible(true);  
     }
     
-    public void mulai_pelatihan(HashMap<String, String> konf, JProgressBar p, JLabel label_mse,JButton do_learn){
+    public void mulai_pelatihan(HashMap<String, String> konf, JProgressBar p, JLabel label_mse,JLabel label_waktu, JButton do_learn){
         if(this.data_latih.size() > 0){
            if(this.validasi_input(konf)){
               this.learner = new Pelatihan();
               this.learner.setDataLatih(this.data_latih);
               this.learner.setNeuralNetwork(konf);
-              this.learner.setLabel(label_mse, do_learn);
+              this.learner.setLabel(label_mse, label_waktu, do_learn);
               this.learner.setProgressBar(p);
               this.learner.execute();
               

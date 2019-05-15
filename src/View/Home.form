@@ -25,6 +25,11 @@
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
   <SubComponents>
     <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
+      <Properties>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Hand Cursor"/>
+        </Property>
+      </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
           <BorderConstraints direction="Center"/>
@@ -74,7 +79,7 @@
                           </Group>
                           <Component id="jSeparator1" min="-2" pref="15" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="270" max="32767" attributes="0"/>
+                      <EmptySpace pref="268" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -91,7 +96,7 @@
             <Component class="javax.swing.JLabel" name="jLabel15">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="24" style="0"/>
+                  <Font name="Century Gothic" size="24" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Backpropagation"/>
               </Properties>
@@ -99,7 +104,7 @@
             <Component class="javax.swing.JLabel" name="jLabel18">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="24" style="0"/>
+                  <Font name="Century Gothic" size="24" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="- Profile Projection"/>
               </Properties>
@@ -186,10 +191,14 @@
                   <SubComponents>
                     <Component class="javax.swing.JButton" name="folder_chooser">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Pilih Folder"/>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/Icon/browse.png"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value=" Data"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                           <Color id="Hand Cursor"/>
                         </Property>
+                        <Property name="focusPainted" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="folder_chooserActionPerformed"/>
@@ -221,7 +230,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                   <Component id="lokasi_direktori" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="207" max="32767" attributes="0"/>
+                                  <EmptySpace pref="245" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -240,7 +249,7 @@
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Century Gothic" size="11" style="0"/>
                             </Property>
-                            <Property name="text" type="java.lang.String" value="direktori"/>
+                            <Property name="text" type="java.lang.String" value="-"/>
                           </Properties>
                         </Component>
                       </SubComponents>
@@ -293,10 +302,10 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel1" min="-2" pref="98" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="label_jumlah_data" min="-2" pref="98" max="-2" attributes="0"/>
-                              <EmptySpace pref="132" max="32767" attributes="0"/>
+                              <EmptySpace pref="222" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -304,9 +313,9 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="label_jumlah_data" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="label_jumlah_data" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="20" max="32767" attributes="0"/>
                           </Group>
@@ -319,7 +328,9 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Century Gothic" size="14" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Jumlah Data :"/>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/Icon/data_icon.png"/>
+                        </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="label_jumlah_data">
@@ -390,45 +401,150 @@
                             </Constraint>
                           </Constraints>
 
-                          <Layout>
-                            <DimensionLayout dim="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="189" max="-2" attributes="0"/>
-                                      <Component id="jLabel2" pref="112" max="32767" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="label_mse" min="-2" pref="137" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                            </DimensionLayout>
-                            <DimensionLayout dim="1">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="label_mse" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                            </DimensionLayout>
+                          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout">
+                            <Property name="axis" type="int" value="3"/>
                           </Layout>
                           <SubComponents>
-                            <Component class="javax.swing.JLabel" name="jLabel2">
-                              <Properties>
-                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Century Gothic" size="11" style="0"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="MSE"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JLabel" name="label_mse">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="0.0"/>
-                              </Properties>
-                            </Component>
+                            <Container class="javax.swing.JPanel" name="jPanel15">
+
+                              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout">
+                                <Property name="axis" type="int" value="3"/>
+                              </Layout>
+                              <SubComponents>
+                                <Container class="javax.swing.JPanel" name="jPanel16">
+
+                                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
+                                  <SubComponents>
+                                    <Container class="javax.swing.JPanel" name="jPanel19">
+                                      <Properties>
+                                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                                            <BevelBorder/>
+                                          </Border>
+                                        </Property>
+                                        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                          <Dimension value="[50, 122]"/>
+                                        </Property>
+                                      </Properties>
+
+                                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+                                      <SubComponents>
+                                        <Component class="javax.swing.JLabel" name="jLabel2">
+                                          <Properties>
+                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                              <Font name="Century Gothic" size="12" style="0"/>
+                                            </Property>
+                                            <Property name="horizontalAlignment" type="int" value="0"/>
+                                            <Property name="text" type="java.lang.String" value="MSE"/>
+                                          </Properties>
+                                          <Constraints>
+                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                                              <BorderConstraints direction="Center"/>
+                                            </Constraint>
+                                          </Constraints>
+                                        </Component>
+                                      </SubComponents>
+                                    </Container>
+                                    <Container class="javax.swing.JPanel" name="jPanel18">
+                                      <Properties>
+                                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+                                        </Property>
+                                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                                            <BevelBorder bevelType="1"/>
+                                          </Border>
+                                        </Property>
+                                        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                          <Dimension value="[50, 122]"/>
+                                        </Property>
+                                      </Properties>
+
+                                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+                                      <SubComponents>
+                                        <Component class="javax.swing.JLabel" name="label_mse">
+                                          <Properties>
+                                            <Property name="horizontalAlignment" type="int" value="0"/>
+                                            <Property name="text" type="java.lang.String" value="0"/>
+                                          </Properties>
+                                          <Constraints>
+                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                                              <BorderConstraints direction="Center"/>
+                                            </Constraint>
+                                          </Constraints>
+                                        </Component>
+                                      </SubComponents>
+                                    </Container>
+                                  </SubComponents>
+                                </Container>
+                                <Container class="javax.swing.JPanel" name="jPanel17">
+
+                                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
+                                  <SubComponents>
+                                    <Container class="javax.swing.JPanel" name="jPanel20">
+                                      <Properties>
+                                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                                            <BevelBorder/>
+                                          </Border>
+                                        </Property>
+                                        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                          <Dimension value="[50, 122]"/>
+                                        </Property>
+                                      </Properties>
+
+                                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+                                      <SubComponents>
+                                        <Component class="javax.swing.JLabel" name="jLabel4">
+                                          <Properties>
+                                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                              <Font name="Century Gothic" size="12" style="0"/>
+                                            </Property>
+                                            <Property name="horizontalAlignment" type="int" value="0"/>
+                                            <Property name="text" type="java.lang.String" value="Waktu"/>
+                                          </Properties>
+                                          <Constraints>
+                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                                              <BorderConstraints direction="Center"/>
+                                            </Constraint>
+                                          </Constraints>
+                                        </Component>
+                                      </SubComponents>
+                                    </Container>
+                                    <Container class="javax.swing.JPanel" name="jPanel21">
+                                      <Properties>
+                                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+                                        </Property>
+                                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                                          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                                            <BevelBorder bevelType="1"/>
+                                          </Border>
+                                        </Property>
+                                        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                          <Dimension value="[50, 122]"/>
+                                        </Property>
+                                      </Properties>
+
+                                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+                                      <SubComponents>
+                                        <Component class="javax.swing.JLabel" name="label_waktu">
+                                          <Properties>
+                                            <Property name="horizontalAlignment" type="int" value="0"/>
+                                            <Property name="text" type="java.lang.String" value="0"/>
+                                          </Properties>
+                                          <Constraints>
+                                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                                              <BorderConstraints direction="Center"/>
+                                            </Constraint>
+                                          </Constraints>
+                                        </Component>
+                                      </SubComponents>
+                                    </Container>
+                                  </SubComponents>
+                                </Container>
+                              </SubComponents>
+                            </Container>
                           </SubComponents>
                         </Container>
                       </SubComponents>
@@ -498,10 +614,10 @@
                               <Layout>
                                 <DimensionLayout dim="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="166" max="-2" attributes="0"/>
-                                          <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace pref="173" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <EmptySpace min="-2" pref="217" max="-2" attributes="0"/>
+                                          <Component id="jLabel12" pref="154" max="32767" attributes="0"/>
+                                          <EmptySpace min="-2" pref="184" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
@@ -510,7 +626,7 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace pref="24" max="32767" attributes="0"/>
+                                          <EmptySpace pref="19" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                 </DimensionLayout>
@@ -519,9 +635,12 @@
                                 <Component class="javax.swing.JLabel" name="jLabel12">
                                   <Properties>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                      <Font name="Century Gothic" size="11" style="0"/>
+                                      <Font name="Century Gothic" size="14" style="0"/>
                                     </Property>
-                                    <Property name="text" type="java.lang.String" value="Konfigurasi Parameter Backpropagation"/>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/Icon/setting.png"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Backpropagation"/>
                                   </Properties>
                                 </Component>
                               </SubComponents>
@@ -588,7 +707,7 @@
                                 <Component class="javax.swing.JTextField" name="label_input_epcoh">
                                   <Properties>
                                     <Property name="horizontalAlignment" type="int" value="0"/>
-                                    <Property name="text" type="java.lang.String" value="100"/>
+                                    <Property name="text" type="java.lang.String" value="5000"/>
                                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                                       <Dimension value="[6, 2147483647]"/>
                                     </Property>
@@ -663,7 +782,7 @@
                                 <Component class="javax.swing.JTextField" name="label_input_learning_rate">
                                   <Properties>
                                     <Property name="horizontalAlignment" type="int" value="0"/>
-                                    <Property name="text" type="java.lang.String" value="0.2"/>
+                                    <Property name="text" type="java.lang.String" value="0.5"/>
                                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                                       <Dimension value="[6, 2147483647]"/>
                                     </Property>
@@ -738,7 +857,7 @@
                                 <Component class="javax.swing.JTextField" name="label_input_hidden_layer">
                                   <Properties>
                                     <Property name="horizontalAlignment" type="int" value="0"/>
-                                    <Property name="text" type="java.lang.String" value="3"/>
+                                    <Property name="text" type="java.lang.String" value="20"/>
                                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                                       <Dimension value="[6, 2147483647]"/>
                                     </Property>
@@ -813,7 +932,7 @@
                                 <Component class="javax.swing.JTextField" name="label_input_node_input">
                                   <Properties>
                                     <Property name="horizontalAlignment" type="int" value="0"/>
-                                    <Property name="text" type="java.lang.String" value="8"/>
+                                    <Property name="text" type="java.lang.String" value="26"/>
                                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                                       <Dimension value="[6, 2147483647]"/>
                                     </Property>
@@ -841,7 +960,10 @@
                                   <SubComponents>
                                     <Component class="javax.swing.JButton" name="do_pelatihan">
                                       <Properties>
-                                        <Property name="text" type="java.lang.String" value="Mulai Pelatihan"/>
+                                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                          <Image iconType="3" name="/Icon/start.png"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="Pelatihan"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                                           <Color id="Hand Cursor"/>
                                         </Property>
@@ -863,10 +985,14 @@
                                   <SubComponents>
                                     <Component class="javax.swing.JButton" name="panel_pengujian">
                                       <Properties>
-                                        <Property name="text" type="java.lang.String" value="Mulai Pengujian"/>
+                                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                          <Image iconType="3" name="/Icon/start.png"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="Pengujian"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                                           <Color id="Hand Cursor"/>
                                         </Property>
+                                        <Property name="focusPainted" type="boolean" value="false"/>
                                       </Properties>
                                       <Events>
                                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="panel_pengujianActionPerformed"/>
