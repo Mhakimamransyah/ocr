@@ -99,8 +99,11 @@ public class Pelatihan extends SwingWorker{
             error = 0;
             jumlah_segmen = 0;
             for(Data data : this.data_latih){
+                this.segmentasiTidakDitemukan(data.getPlat_nomor());
                 index_file = 0;
                 File direktori = new File(new File("").getAbsolutePath()+"\\segments\\"+data.getPlat_nomor()+".JPG\\");
+                int banyaknya_segmentasi = direktori.listFiles().length;
+                this.jumlahSegmentasiTerlaluBesar(banyaknya_segmentasi, data.getPlat_nomor());
                 for(File f : direktori.listFiles()){
                     try {
                         CitraKeabuan citra = pra_proses.doBinerisasi(pra_proses.doInvers(pra_proses
@@ -108,8 +111,7 @@ public class Pelatihan extends SwingWorker{
                                 .read(f.getAbsoluteFile())))), f.getName());
                           double[][] input = this.normalisasiCitra(this.resizeImage(citra).getPixelDecimal());
                           double input_vektor[] = this.getImageVektor(input);
-                          bp.learn(input_vektor, this.getTargetValue(data, index_file));
-//                       
+                          bp.learn(input_vektor, this.getTargetValue(data, index_file));                     
                           error = error + bp.getNn().getError();                        
                     } catch (IOException ex) {
                         Logger.getLogger(Pelatihan.class.getName()).log(Level.SEVERE, null, ex);
@@ -128,6 +130,28 @@ public class Pelatihan extends SwingWorker{
         }
         this.waktu.setText(((double)(System.currentTimeMillis()-waktu_eksekusi)/1000)+" detik");
         return null;
+    }
+    
+    
+    private void jumlahSegmentasiTerlaluBesar(int panjang_segmen, String karakter){    
+        int panjang_plat_aktual = karakter.toCharArray().length;
+        if(panjang_segmen > panjang_plat_aktual){
+            System.out.println("ERROR--->Segmentasi karakter "+karakter+" terlalu banyak");
+        }
+    }
+    
+    private void segmentasiTidakDitemukan(String karakter){
+        boolean  isThere = false;
+        File[] directories = new File(new File("").getAbsolutePath()+"\\segments\\").listFiles(File::isDirectory);
+        for(File f : directories){
+            if(f.getName().split("\\.")[0].equalsIgnoreCase(karakter)){
+                isThere = true;
+                break;
+            }
+        } 
+        if(isThere == false){
+            System.out.println("ERROR-->Plat Nomor "+karakter+" GAGAL DI SEGMENTASI");
+        }
     }
     
     private CitraKeabuan resizeImage(CitraKeabuan citra){
@@ -281,9 +305,10 @@ public class Pelatihan extends SwingWorker{
           case 'Y' :  value[34]=1; break;
           case 'Z' :  value[35]=1; break;
         }   
-      }else{
-          System.out.println("Error!, Jumlah segmentasi lebih banyak dibandingkan jumlah karakter sebenarnya");
       }
+//      else{
+//          System.out.println("Error!, Jumlah segmentasi lebih banyak dibandingkan jumlah karakter sebenarnya");
+//      }
 //      for(int i=0;i<value.length;i++){
 //          System.out.print(value[i]+" ");
 //      }

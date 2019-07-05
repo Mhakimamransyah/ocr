@@ -23,6 +23,8 @@ public class NeuralNetwork {
         this.n_hidden_layer = new ArrayList<HiddenLayer>();
         this.inisialisasiNeuralNetwork(hidden,n_input_layer,n_output_layer);
         this.cetakBobot();
+        System.out.println("");
+        System.out.println("");
     //    this.cetakArsitektur();
     }
     
