@@ -6,9 +6,11 @@
 package View;
 
 import Controller.Main;
+import Model.NeuralNetwork.NeuralNetwork;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,6 +19,7 @@ import java.util.logging.Logger;
 public class Panel_pengujian extends javax.swing.JFrame {
 
     private Main main;
+    private NeuralNetwork nn;
     
     public Panel_pengujian(Main main) {
         this.main = main;
@@ -63,10 +66,11 @@ public class Panel_pengujian extends javax.swing.JFrame {
         rerata_akurasi = new javax.swing.JLabel();
         btn_mulai_pengujian = new javax.swing.JPanel();
         do_pengujian = new javax.swing.JButton();
+        load_bobot = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Panel Pengujian");
-        setPreferredSize(new java.awt.Dimension(700, 610));
+        setPreferredSize(new java.awt.Dimension(700, 609));
 
         jPanel1.setLayout(new java.awt.BorderLayout());
 
@@ -240,6 +244,14 @@ public class Panel_pengujian extends javax.swing.JFrame {
         });
         btn_mulai_pengujian.add(do_pengujian, java.awt.BorderLayout.CENTER);
 
+        load_bobot.setText("Load Bobot");
+        load_bobot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                load_bobotActionPerformed(evt);
+            }
+        });
+        btn_mulai_pengujian.add(load_bobot, java.awt.BorderLayout.LINE_START);
+
         jPanel2.add(btn_mulai_pengujian);
 
         testing_management.add(jPanel2, java.awt.BorderLayout.CENTER);
@@ -267,8 +279,17 @@ public class Panel_pengujian extends javax.swing.JFrame {
     }//GEN-LAST:event_list_imageMouseClicked
 
     private void do_pengujianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_do_pengujianActionPerformed
-       this.main.mulai_pengujian(this.tabel_plat_nomor,this.rerata_akurasi);
+       if(this.nn != null){
+          this.main.mulai_pengujian(this.tabel_plat_nomor,this.rerata_akurasi,this.nn);   
+       }else{
+           JOptionPane.showMessageDialog(null,"Tidak ada bobot ditemukan"," Ooops!!",JOptionPane.ERROR_MESSAGE);
+       }
     }//GEN-LAST:event_do_pengujianActionPerformed
+
+    private void load_bobotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_load_bobotActionPerformed
+        // TODO add your handling code here:
+        this.nn = this.main.load_bobot();
+    }//GEN-LAST:event_load_bobotActionPerformed
 
     /**
      * @param args the command line arguments
@@ -326,6 +347,7 @@ public class Panel_pengujian extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel label_jumlah_data;
     private javax.swing.JList<String> list_image;
+    private javax.swing.JButton load_bobot;
     private javax.swing.JLabel lokasi_direktori;
     private javax.swing.JPanel panel_pelatihan;
     private javax.swing.JPanel pilih_folder;

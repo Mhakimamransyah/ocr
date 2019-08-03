@@ -44,62 +44,8 @@ public class Home extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        panel_pelatihan = new javax.swing.JPanel();
-        data_management = new javax.swing.JPanel();
-        jPanel11 = new javax.swing.JPanel();
-        progres_muat_citra = new javax.swing.JProgressBar();
-        pilih_folder = new javax.swing.JPanel();
-        folder_chooser = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        lokasi_direktori = new javax.swing.JLabel();
-        image_panel = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        list_image = new javax.swing.JList<>();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        label_jumlah_data = new javax.swing.JLabel();
-        train_management = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        training_result = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel15 = new javax.swing.JPanel();
-        jPanel16 = new javax.swing.JPanel();
-        jPanel19 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jPanel18 = new javax.swing.JPanel();
-        label_mse = new javax.swing.JLabel();
-        jPanel17 = new javax.swing.JPanel();
-        jPanel20 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jPanel21 = new javax.swing.JPanel();
-        label_waktu = new javax.swing.JLabel();
-        prog_bar = new javax.swing.JPanel();
-        progress_bar_pelatihan = new javax.swing.JProgressBar();
-        train_konfig = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
-        title = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
-        epoch1 = new javax.swing.JPanel();
-        jPanel8 = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        label_input_epcoh = new javax.swing.JTextField();
-        epoch2 = new javax.swing.JPanel();
-        jPanel9 = new javax.swing.JPanel();
-        jLabel16 = new javax.swing.JLabel();
-        label_input_learning_rate = new javax.swing.JTextField();
-        epoch3 = new javax.swing.JPanel();
-        jPanel12 = new javax.swing.JPanel();
-        jLabel17 = new javax.swing.JLabel();
-        label_input_hidden_layer = new javax.swing.JTextField();
-        epoch4 = new javax.swing.JPanel();
-        jPanel13 = new javax.swing.JPanel();
-        jLabel19 = new javax.swing.JLabel();
-        label_input_node_input = new javax.swing.JTextField();
-        jPanel10 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
-        do_pelatihan = new javax.swing.JButton();
-        jPanel6 = new javax.swing.JPanel();
-        panel_pengujian = new javax.swing.JButton();
+        pl = new javax.swing.JButton();
+        do_pengujian = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Optical Character Recognition");
@@ -117,439 +63,60 @@ public class Home extends javax.swing.JFrame {
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
 
+        pl.setText("Pelatihan");
+        pl.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                plActionPerformed(evt);
+            }
+        });
+
+        do_pengujian.setText("Pengujian");
+        do_pengujian.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                do_pengujianActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel_homeLayout = new javax.swing.GroupLayout(panel_home);
         panel_home.setLayout(panel_homeLayout);
         panel_homeLayout.setHorizontalGroup(
             panel_homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_homeLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(panel_homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(27, 27, 27)
+                .addGroup(panel_homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel13)
+                    .addGroup(panel_homeLayout.createSequentialGroup()
+                        .addGap(311, 311, 311)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panel_homeLayout.createSequentialGroup()
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel18)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel13))
-                .addContainerGap(260, Short.MAX_VALUE))
+                        .addComponent(jLabel18))
+                    .addGroup(panel_homeLayout.createSequentialGroup()
+                        .addComponent(pl, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52)
+                        .addComponent(do_pengujian, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(266, Short.MAX_VALUE))
         );
         panel_homeLayout.setVerticalGroup(
             panel_homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_homeLayout.createSequentialGroup()
-                .addGap(205, 205, 205)
+                .addGap(179, 179, 179)
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panel_homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel_homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel15)
-                        .addComponent(jLabel18))
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(268, Short.MAX_VALUE))
+                .addGroup(panel_homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(jLabel15))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel_homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pl, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(do_pengujian, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(228, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Home", panel_home);
-
-        panel_pelatihan.setLayout(new javax.swing.BoxLayout(panel_pelatihan, javax.swing.BoxLayout.LINE_AXIS));
-
-        data_management.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        data_management.setPreferredSize(new java.awt.Dimension(200, 473));
-        data_management.setLayout(new javax.swing.BoxLayout(data_management, javax.swing.BoxLayout.PAGE_AXIS));
-
-        jPanel11.setMaximumSize(new java.awt.Dimension(32767, 10));
-        jPanel11.setMinimumSize(new java.awt.Dimension(0, 10));
-        jPanel11.setPreferredSize(new java.awt.Dimension(356, 10));
-        jPanel11.setLayout(new java.awt.BorderLayout());
-
-        progres_muat_citra.setForeground(new java.awt.Color(0, 255, 51));
-        progres_muat_citra.setToolTipText("");
-        jPanel11.add(progres_muat_citra, java.awt.BorderLayout.CENTER);
-
-        data_management.add(jPanel11);
-
-        pilih_folder.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        pilih_folder.setPreferredSize(new java.awt.Dimension(301, 10));
-        pilih_folder.setLayout(new java.awt.BorderLayout());
-
-        folder_chooser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/browse.png"))); // NOI18N
-        folder_chooser.setText(" Data");
-        folder_chooser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        folder_chooser.setFocusPainted(false);
-        folder_chooser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                folder_chooserActionPerformed(evt);
-            }
-        });
-        pilih_folder.add(folder_chooser, java.awt.BorderLayout.LINE_START);
-
-        jPanel3.setMaximumSize(new java.awt.Dimension(156, 32767));
-        jPanel3.setMinimumSize(new java.awt.Dimension(156, 100));
-
-        lokasi_direktori.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
-        lokasi_direktori.setText("-");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(lokasi_direktori)
-                .addContainerGap(245, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(lokasi_direktori, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 51, Short.MAX_VALUE))
-        );
-
-        pilih_folder.add(jPanel3, java.awt.BorderLayout.CENTER);
-
-        data_management.add(pilih_folder);
-
-        image_panel.setPreferredSize(new java.awt.Dimension(301, 400));
-        image_panel.setLayout(new java.awt.BorderLayout());
-
-        list_image.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        list_image.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                list_imageMouseClicked(evt);
-            }
-        });
-        jScrollPane2.setViewportView(list_image);
-
-        image_panel.add(jScrollPane2, java.awt.BorderLayout.CENTER);
-
-        data_management.add(image_panel);
-
-        jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/data_icon.png"))); // NOI18N
-
-        label_jumlah_data.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        label_jumlah_data.setText("0");
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(label_jumlah_data, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(222, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(label_jumlah_data)
-                    .addComponent(jLabel1))
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
-
-        data_management.add(jPanel4);
-
-        panel_pelatihan.add(data_management);
-
-        train_management.setBackground(new java.awt.Color(51, 102, 0));
-        train_management.setPreferredSize(new java.awt.Dimension(400, 570));
-        train_management.setLayout(new java.awt.BorderLayout());
-
-        jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.PAGE_AXIS));
-
-        training_result.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        training_result.setMaximumSize(new java.awt.Dimension(2147483647, 100));
-        training_result.setPreferredSize(new java.awt.Dimension(453, 150));
-        training_result.setLayout(new java.awt.BorderLayout());
-
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Hasil Pelatihan", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 0, 11))); // NOI18N
-        jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.PAGE_AXIS));
-
-        jPanel15.setLayout(new javax.swing.BoxLayout(jPanel15, javax.swing.BoxLayout.PAGE_AXIS));
-
-        jPanel16.setLayout(new javax.swing.BoxLayout(jPanel16, javax.swing.BoxLayout.LINE_AXIS));
-
-        jPanel19.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel19.setPreferredSize(new java.awt.Dimension(50, 122));
-        jPanel19.setLayout(new java.awt.BorderLayout());
-
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("MSE");
-        jPanel19.add(jLabel2, java.awt.BorderLayout.CENTER);
-
-        jPanel16.add(jPanel19);
-
-        jPanel18.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel18.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel18.setPreferredSize(new java.awt.Dimension(50, 122));
-        jPanel18.setLayout(new java.awt.BorderLayout());
-
-        label_mse.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_mse.setText("0");
-        jPanel18.add(label_mse, java.awt.BorderLayout.CENTER);
-
-        jPanel16.add(jPanel18);
-
-        jPanel15.add(jPanel16);
-
-        jPanel17.setLayout(new javax.swing.BoxLayout(jPanel17, javax.swing.BoxLayout.LINE_AXIS));
-
-        jPanel20.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel20.setPreferredSize(new java.awt.Dimension(50, 122));
-        jPanel20.setLayout(new java.awt.BorderLayout());
-
-        jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Waktu");
-        jPanel20.add(jLabel4, java.awt.BorderLayout.CENTER);
-
-        jPanel17.add(jPanel20);
-
-        jPanel21.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel21.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel21.setPreferredSize(new java.awt.Dimension(50, 122));
-        jPanel21.setLayout(new java.awt.BorderLayout());
-
-        label_waktu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_waktu.setText("0");
-        jPanel21.add(label_waktu, java.awt.BorderLayout.CENTER);
-
-        jPanel17.add(jPanel21);
-
-        jPanel15.add(jPanel17);
-
-        jPanel2.add(jPanel15);
-
-        training_result.add(jPanel2, java.awt.BorderLayout.CENTER);
-
-        jPanel1.add(training_result);
-
-        prog_bar.setMaximumSize(new java.awt.Dimension(32767, 20));
-        prog_bar.setMinimumSize(new java.awt.Dimension(0, 20));
-        prog_bar.setPreferredSize(new java.awt.Dimension(446, 20));
-        prog_bar.setLayout(new java.awt.BorderLayout());
-
-        progress_bar_pelatihan.setToolTipText("proses");
-        progress_bar_pelatihan.setName("epoch"); // NOI18N
-        progress_bar_pelatihan.setString("");
-        progress_bar_pelatihan.setStringPainted(true);
-        prog_bar.add(progress_bar_pelatihan, java.awt.BorderLayout.CENTER);
-
-        jPanel1.add(prog_bar);
-
-        train_konfig.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        train_konfig.setPreferredSize(new java.awt.Dimension(453, 20));
-        train_konfig.setLayout(new java.awt.BorderLayout());
-
-        jPanel5.setLayout(new javax.swing.BoxLayout(jPanel5, javax.swing.BoxLayout.PAGE_AXIS));
-
-        title.setPreferredSize(new java.awt.Dimension(400, 50));
-
-        jLabel12.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/setting.png"))); // NOI18N
-        jLabel12.setText("Backpropagation");
-
-        javax.swing.GroupLayout titleLayout = new javax.swing.GroupLayout(title);
-        title.setLayout(titleLayout);
-        titleLayout.setHorizontalGroup(
-            titleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, titleLayout.createSequentialGroup()
-                .addGap(217, 217, 217)
-                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
-                .addGap(184, 184, 184))
-        );
-        titleLayout.setVerticalGroup(
-            titleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(titleLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel12)
-                .addContainerGap(19, Short.MAX_VALUE))
-        );
-
-        jPanel5.add(title);
-
-        epoch1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        epoch1.setPreferredSize(new java.awt.Dimension(400, 50));
-        epoch1.setLayout(new java.awt.BorderLayout());
-
-        jPanel8.setMaximumSize(new java.awt.Dimension(101, 32767));
-        jPanel8.setMinimumSize(new java.awt.Dimension(101, 0));
-        jPanel8.setPreferredSize(new java.awt.Dimension(101, 46));
-
-        jLabel14.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
-        jLabel14.setText("Epoch");
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel14)
-                .addContainerGap(38, Short.MAX_VALUE))
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
-        );
-
-        epoch1.add(jPanel8, java.awt.BorderLayout.LINE_START);
-
-        label_input_epcoh.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        label_input_epcoh.setText("5000");
-        label_input_epcoh.setMaximumSize(new java.awt.Dimension(6, 2147483647));
-        epoch1.add(label_input_epcoh, java.awt.BorderLayout.CENTER);
-
-        jPanel5.add(epoch1);
-
-        epoch2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        epoch2.setPreferredSize(new java.awt.Dimension(400, 50));
-        epoch2.setLayout(new java.awt.BorderLayout());
-
-        jPanel9.setMaximumSize(new java.awt.Dimension(101, 32767));
-        jPanel9.setMinimumSize(new java.awt.Dimension(101, 0));
-        jPanel9.setPreferredSize(new java.awt.Dimension(101, 46));
-
-        jLabel16.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
-        jLabel16.setText("Learning Rate");
-
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
-        );
-
-        epoch2.add(jPanel9, java.awt.BorderLayout.LINE_START);
-
-        label_input_learning_rate.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        label_input_learning_rate.setText("0.5");
-        label_input_learning_rate.setMaximumSize(new java.awt.Dimension(6, 2147483647));
-        epoch2.add(label_input_learning_rate, java.awt.BorderLayout.CENTER);
-
-        jPanel5.add(epoch2);
-
-        epoch3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        epoch3.setPreferredSize(new java.awt.Dimension(400, 50));
-        epoch3.setLayout(new java.awt.BorderLayout());
-
-        jPanel12.setMaximumSize(new java.awt.Dimension(101, 32767));
-        jPanel12.setMinimumSize(new java.awt.Dimension(101, 0));
-        jPanel12.setPreferredSize(new java.awt.Dimension(101, 46));
-
-        jLabel17.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
-        jLabel17.setText("Node Hidden");
-
-        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
-        jPanel12.setLayout(jPanel12Layout);
-        jPanel12Layout.setHorizontalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel12Layout.setVerticalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
-        );
-
-        epoch3.add(jPanel12, java.awt.BorderLayout.LINE_START);
-
-        label_input_hidden_layer.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        label_input_hidden_layer.setText("20");
-        label_input_hidden_layer.setMaximumSize(new java.awt.Dimension(6, 2147483647));
-        epoch3.add(label_input_hidden_layer, java.awt.BorderLayout.CENTER);
-
-        jPanel5.add(epoch3);
-
-        epoch4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        epoch4.setPreferredSize(new java.awt.Dimension(400, 50));
-        epoch4.setLayout(new java.awt.BorderLayout());
-
-        jPanel13.setMaximumSize(new java.awt.Dimension(101, 32767));
-        jPanel13.setMinimumSize(new java.awt.Dimension(101, 0));
-        jPanel13.setPreferredSize(new java.awt.Dimension(101, 46));
-
-        jLabel19.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
-        jLabel19.setText("Node Input");
-
-        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
-        jPanel13.setLayout(jPanel13Layout);
-        jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
-        );
-
-        epoch4.add(jPanel13, java.awt.BorderLayout.LINE_START);
-
-        label_input_node_input.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        label_input_node_input.setText("26");
-        label_input_node_input.setMaximumSize(new java.awt.Dimension(6, 2147483647));
-        epoch4.add(label_input_node_input, java.awt.BorderLayout.CENTER);
-
-        jPanel5.add(epoch4);
-
-        jPanel10.setPreferredSize(new java.awt.Dimension(400, 7));
-        jPanel10.setLayout(new javax.swing.BoxLayout(jPanel10, javax.swing.BoxLayout.LINE_AXIS));
-
-        jPanel7.setLayout(new java.awt.BorderLayout());
-
-        do_pelatihan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/start.png"))); // NOI18N
-        do_pelatihan.setText("Pelatihan");
-        do_pelatihan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        do_pelatihan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                do_pelatihanActionPerformed(evt);
-            }
-        });
-        jPanel7.add(do_pelatihan, java.awt.BorderLayout.CENTER);
-
-        jPanel10.add(jPanel7);
-
-        jPanel6.setLayout(new java.awt.BorderLayout());
-
-        panel_pengujian.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/start.png"))); // NOI18N
-        panel_pengujian.setText("Pengujian");
-        panel_pengujian.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        panel_pengujian.setFocusPainted(false);
-        panel_pengujian.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                panel_pengujianActionPerformed(evt);
-            }
-        });
-        jPanel6.add(panel_pengujian, java.awt.BorderLayout.CENTER);
-
-        jPanel10.add(jPanel6);
-
-        jPanel5.add(jPanel10);
-
-        train_konfig.add(jPanel5, java.awt.BorderLayout.CENTER);
-
-        jPanel1.add(train_konfig);
-
-        train_management.add(jPanel1, java.awt.BorderLayout.CENTER);
-
-        panel_pelatihan.add(train_management);
-
-        jTabbedPane1.addTab("Dashboard Pelatihan", panel_pelatihan);
 
         getContentPane().add(jTabbedPane1, java.awt.BorderLayout.CENTER);
 
@@ -557,30 +124,13 @@ public class Home extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void folder_chooserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_folder_chooserActionPerformed
-        try {
-            this.main.muatCitra("Data Latih",this.panel_pelatihan,this.progres_muat_citra,this.lokasi_direktori,this.list_image,this.label_jumlah_data);
-        } catch (IOException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_folder_chooserActionPerformed
+    private void plActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plActionPerformed
+       this.main.panel_pelatihan();
+    }//GEN-LAST:event_plActionPerformed
 
-    private void list_imageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_list_imageMouseClicked
-       
-    }//GEN-LAST:event_list_imageMouseClicked
-
-    private void do_pelatihanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_do_pelatihanActionPerformed
-        HashMap<String, String> konfig = new HashMap<String, String>();
-        konfig.put("Epoch", this.label_input_epcoh.getText());
-        konfig.put("Learning_rate", this.label_input_learning_rate.getText());
-        konfig.put("Hidden_layer", this.label_input_hidden_layer.getText());
-        konfig.put("Input_layer", this.label_input_node_input.getText());
-        this.main.mulai_pelatihan(konfig,this.progress_bar_pelatihan, this.label_mse,this.label_waktu , this.do_pelatihan);
-    }//GEN-LAST:event_do_pelatihanActionPerformed
-
-    private void panel_pengujianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_panel_pengujianActionPerformed
-        this.main.tampilkanPanelPengujian();
-    }//GEN-LAST:event_panel_pengujianActionPerformed
+    private void do_pengujianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_do_pengujianActionPerformed
+       this.main.panel_pengujian();
+    }//GEN-LAST:event_do_pengujianActionPerformed
 
     /**
      * @param args the command line arguments
@@ -618,67 +168,13 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel data_management;
-    private javax.swing.JButton do_pelatihan;
-    private javax.swing.JPanel epoch1;
-    private javax.swing.JPanel epoch2;
-    private javax.swing.JPanel epoch3;
-    private javax.swing.JPanel epoch4;
-    private javax.swing.JButton folder_chooser;
-    private javax.swing.JPanel image_panel;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel12;
+    private javax.swing.JButton do_pengujian;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel15;
-    private javax.swing.JPanel jPanel16;
-    private javax.swing.JPanel jPanel17;
-    private javax.swing.JPanel jPanel18;
-    private javax.swing.JPanel jPanel19;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel20;
-    private javax.swing.JPanel jPanel21;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField label_input_epcoh;
-    private javax.swing.JTextField label_input_hidden_layer;
-    private javax.swing.JTextField label_input_learning_rate;
-    private javax.swing.JTextField label_input_node_input;
-    private javax.swing.JLabel label_jumlah_data;
-    private javax.swing.JLabel label_mse;
-    private javax.swing.JLabel label_waktu;
-    private javax.swing.JList<String> list_image;
-    private javax.swing.JLabel lokasi_direktori;
     private javax.swing.JPanel panel_home;
-    private javax.swing.JPanel panel_pelatihan;
-    private javax.swing.JButton panel_pengujian;
-    private javax.swing.JPanel pilih_folder;
-    private javax.swing.JPanel prog_bar;
-    private javax.swing.JProgressBar progres_muat_citra;
-    private javax.swing.JProgressBar progress_bar_pelatihan;
-    private javax.swing.JPanel title;
-    private javax.swing.JPanel train_konfig;
-    private javax.swing.JPanel train_management;
-    private javax.swing.JPanel training_result;
+    private javax.swing.JButton pl;
     // End of variables declaration//GEN-END:variables
 }

@@ -38,6 +38,7 @@ public class Pelatihan extends SwingWorker{
     private JProgressBar progress;
     private JLabel mse,waktu;
     private JButton do_learn;
+    private JButton save_bobot;
     private HashMap<String, String> konfigurasi_nn;
     boolean inTraining = false;
     private Prapengolahan pra_proses = new Prapengolahan();
@@ -58,10 +59,11 @@ public class Pelatihan extends SwingWorker{
         this.data_latih = data;
     }
     
-    public void setLabel(JLabel mse,JLabel waktu,JButton do_learn){
+    public void setLabel(JLabel mse,JLabel waktu,JButton do_learn,JButton save_bobot){
         this.mse = mse;
         this.waktu = waktu;
         this.do_learn = do_learn;
+        this.save_bobot = save_bobot;
     }
     
     private int[] getHiddenLayerNumber(String hidden_layer_label){
@@ -84,6 +86,7 @@ public class Pelatihan extends SwingWorker{
         this.do_learn.setText("Proses Sedang Berjalan");
         this.waktu.setText(" meng-eksekusi...");
         this.do_learn.setEnabled(false);
+        this.save_bobot.setEnabled(false);
         this.progress.setValue(0);
         this.mse.setText("0");
 
@@ -323,6 +326,7 @@ public class Pelatihan extends SwingWorker{
         this.inTraining = false;
         this.do_learn.setEnabled(true);
         this.do_learn.setText("Mulai Pelatihan");
+        this.save_bobot.setEnabled(true);
         System.out.println("selesai");
     }
 }
