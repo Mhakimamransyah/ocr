@@ -7,10 +7,14 @@ package View;
 
 import Controller.Main;
 import Model.NeuralNetwork.NeuralNetwork;
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -24,6 +28,7 @@ public class Panel_pengujian extends javax.swing.JFrame {
     public Panel_pengujian(Main main) {
         this.main = main;
         initComponents();
+        this.buildTreeOfFile();
     }
 
     private Panel_pengujian() {
@@ -54,6 +59,10 @@ public class Panel_pengujian extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         label_jumlah_data = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTree1 = new javax.swing.JTree();
         testing_management = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         hasil_pengujian = new javax.swing.JPanel();
@@ -70,7 +79,12 @@ public class Panel_pengujian extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Panel Pengujian");
-        setPreferredSize(new java.awt.Dimension(700, 609));
+        setPreferredSize(new java.awt.Dimension(1000, 609));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jPanel1.setLayout(new java.awt.BorderLayout());
 
@@ -118,7 +132,7 @@ public class Panel_pengujian extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(lokasi_direktori)
-                .addContainerGap(319, Short.MAX_VALUE))
+                .addContainerGap(190, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,7 +175,7 @@ public class Panel_pengujian extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(label_jumlah_data, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(264, Short.MAX_VALUE))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,6 +190,22 @@ public class Panel_pengujian extends javax.swing.JFrame {
         data_management.add(jPanel4);
 
         panel_pelatihan.add(data_management);
+
+        jPanel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel7.setPreferredSize(new java.awt.Dimension(100, 300));
+        jPanel7.setLayout(new java.awt.BorderLayout());
+
+        jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("Pilih File Bobot Neural network"));
+        jPanel8.setLayout(new java.awt.BorderLayout());
+
+        jTree1.setShowsRootHandles(true);
+        jScrollPane3.setViewportView(jTree1);
+
+        jPanel8.add(jScrollPane3, java.awt.BorderLayout.CENTER);
+
+        jPanel7.add(jPanel8, java.awt.BorderLayout.CENTER);
+
+        panel_pelatihan.add(jPanel7);
 
         testing_management.setBackground(new java.awt.Color(51, 102, 0));
         testing_management.setPreferredSize(new java.awt.Dimension(200, 570));
@@ -288,9 +318,43 @@ public class Panel_pengujian extends javax.swing.JFrame {
 
     private void load_bobotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_load_bobotActionPerformed
         // TODO add your handling code here:
-        this.nn = this.main.load_bobot();
+        try{
+           DefaultMutableTreeNode node = (DefaultMutableTreeNode)this.jTree1.getSelectionPath().getLastPathComponent();
+           System.out.println(" "+node.getUserObject().toString());
+           this.nn = this.main.load_bobot(node.getUserObject().toString());   
+        }catch(Exception ex){
+           JOptionPane.showMessageDialog(null,"Bobot tidak ditemukan"," Oops!!",JOptionPane.ERROR_MESSAGE);      
+        }
     }//GEN-LAST:event_load_bobotActionPerformed
 
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        this.main.releaseData("Uji");
+    }//GEN-LAST:event_formWindowClosed
+
+    private void buildTreeOfFile(){
+        File dir_now = new File(Paths.get(".").toAbsolutePath().normalize().toString());
+       
+        DefaultMutableTreeNode root = new DefaultMutableTreeNode("File Bobot Hasil Pelatihan");
+        DefaultTreeModel model = new DefaultTreeModel(root);
+        
+        File[] sub_ = dir_now.listFiles();
+        for(File f : sub_){
+            
+            String temp_file[] = f.toString().split("\\\\");
+            String str_temp_file = temp_file[temp_file.length-1];
+            
+//            System.out.println(" "+str_temp_file.lastIndexOf("."));
+            if(str_temp_file.lastIndexOf(".") != -1){
+                String ext = str_temp_file.substring(str_temp_file.lastIndexOf("."));
+                if(ext.equalsIgnoreCase(".txt")){
+                     root.add(new DefaultMutableTreeNode(str_temp_file));       
+                }
+            }
+        }
+        
+        this.jTree1.setModel(model);
+    }
     /**
      * @param args the command line arguments
      */
@@ -343,8 +407,12 @@ public class Panel_pengujian extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTree jTree1;
     private javax.swing.JLabel label_jumlah_data;
     private javax.swing.JList<String> list_image;
     private javax.swing.JButton load_bobot;

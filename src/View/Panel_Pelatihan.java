@@ -91,14 +91,17 @@ public class Panel_Pelatihan extends javax.swing.JFrame {
         jPanel10 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         do_pelatihan = new javax.swing.JButton();
-        jPanel6 = new javax.swing.JPanel();
-        simpan_bobot = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Panel Pelatihan");
         setMaximumSize(new java.awt.Dimension(702, 2147483647));
         setMinimumSize(new java.awt.Dimension(702, 221));
-        setPreferredSize(new java.awt.Dimension(926, 598));
+        setPreferredSize(new java.awt.Dimension(927, 598));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         panel_pelatihan.setPreferredSize(new java.awt.Dimension(700, 571));
         panel_pelatihan.setLayout(new javax.swing.BoxLayout(panel_pelatihan, javax.swing.BoxLayout.LINE_AXIS));
@@ -477,20 +480,6 @@ public class Panel_Pelatihan extends javax.swing.JFrame {
 
         jPanel10.add(jPanel7);
 
-        jPanel6.setLayout(new java.awt.BorderLayout());
-
-        simpan_bobot.setText("simpan bobot");
-        simpan_bobot.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        simpan_bobot.setFocusPainted(false);
-        simpan_bobot.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                simpan_bobotActionPerformed(evt);
-            }
-        });
-        jPanel6.add(simpan_bobot, java.awt.BorderLayout.CENTER);
-
-        jPanel10.add(jPanel6);
-
         jPanel5.add(jPanel10);
 
         train_konfig.add(jPanel5, java.awt.BorderLayout.CENTER);
@@ -525,12 +514,13 @@ public class Panel_Pelatihan extends javax.swing.JFrame {
         konfig.put("Learning_rate", this.label_input_learning_rate.getText());
         konfig.put("Hidden_layer", this.label_input_hidden_layer.getText());
         konfig.put("Input_layer", this.label_input_node_input.getText());
-        this.main.mulai_pelatihan(konfig,this.progress_bar_pelatihan, this.label_mse,this.label_waktu , this.do_pelatihan,this.simpan_bobot);
+        this.main.mulai_pelatihan(konfig,this.progress_bar_pelatihan, this.label_mse,this.label_waktu , this.do_pelatihan);
     }//GEN-LAST:event_do_pelatihanActionPerformed
 
-    private void simpan_bobotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpan_bobotActionPerformed
-        this.main.simpan_bobot();
-    }//GEN-LAST:event_simpan_bobotActionPerformed
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        this.main.releaseData("Latih");
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
@@ -600,7 +590,6 @@ public class Panel_Pelatihan extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
@@ -619,7 +608,6 @@ public class Panel_Pelatihan extends javax.swing.JFrame {
     private javax.swing.JPanel prog_bar;
     private javax.swing.JProgressBar progres_muat_citra;
     private javax.swing.JProgressBar progress_bar_pelatihan;
-    private javax.swing.JButton simpan_bobot;
     private javax.swing.JPanel title;
     private javax.swing.JPanel train_konfig;
     private javax.swing.JPanel train_management;

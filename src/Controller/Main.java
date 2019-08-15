@@ -58,20 +58,12 @@ public class Main {
         pelatihan.setVisible(true);
     }
     
-    public void simpan_bobot(){
-        if(this.learner != null){
-            this.write_bobot(learner.getNn());
-            
-        }else{
-            JOptionPane.showMessageDialog(null,"Lakukan Pelatihan Terlebih Dahulu"," Ooops",JOptionPane.ERROR_MESSAGE);
-        }
-    }
-    
-    private void write_bobot(NeuralNetwork nn){
+   
+    public static void write_bobot(NeuralNetwork nn,String file_name){
         PrintWriter writer = null;
         try {
             try {
-                writer = new PrintWriter(new File(Paths.get(".").toAbsolutePath().normalize().toString()+"/bobot.txt"),"UTF-8");
+                writer = new PrintWriter(new File(Paths.get(".").toAbsolutePath().normalize().toString()+"/"+file_name+".txt"),"UTF-8");
                 writer.println(nn.getN_hidden_layer().get(0).getNeuron().size());
             } catch (UnsupportedEncodingException ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
@@ -86,12 +78,6 @@ public class Main {
             }
        
             for(HiddenLayer hidden_layer : nn.getN_hidden_layer()){
-//                writer.print("Bobot hidden "+hidden);
-//                if(hidden == nn.getN_hidden_layer().size()){
-//                    writer.println(" ");
-//                }else{
-//                    writer.println("  ");
-//                }
                 for(Neuron neuron : hidden_layer.getNeuron()){
                     for(Double value: neuron.getBobot_keluar()){
                         writer.print(value+" ");
@@ -107,15 +93,15 @@ public class Main {
             writer.close();
         }
 //        JOptionPane.showMessageDialog(null,"Bobot Telah Tersimpan","Berhasil",JOptionPane.OK_OPTION);
-        JOptionPane.showMessageDialog(null,"Bobot Telah Tersimpan","  It's Works!!",JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null,"Pelatihan Selesai dan Bobot Telah Tersimpan","  It's Works!!",JOptionPane.INFORMATION_MESSAGE);
 //        nn.cetakBobot();
     }
     
-    public NeuralNetwork load_bobot(){
+    public NeuralNetwork load_bobot(String file_bobot){
         
         NeuralNetwork nn = null;
         try {
-            BufferedReader br = new BufferedReader(new FileReader(new File(Paths.get(".").toAbsolutePath().normalize().toString()+"/bobot.txt")));
+            BufferedReader br = new BufferedReader(new FileReader(new File(Paths.get(".").toAbsolutePath().normalize().toString()+"\\"+file_bobot)));
             int hidden_layer[] = {Integer.parseInt(br.readLine())};
             nn = new NeuralNetwork(hidden_layer,26,36);
             
@@ -193,13 +179,13 @@ public class Main {
        h.setVisible(true);  
     }
     
-    public void mulai_pelatihan(HashMap<String, String> konf, JProgressBar p, JLabel label_mse,JLabel label_waktu, JButton do_learn,JButton save_bobot){
+    public void mulai_pelatihan(HashMap<String, String> konf, JProgressBar p, JLabel label_mse,JLabel label_waktu, JButton do_learn){
         if(this.data_latih.size() > 0){
            if(this.validasi_input(konf)){
               this.learner = new Pelatihan();
               this.learner.setDataLatih(this.data_latih);
               this.learner.setNeuralNetwork(konf);
-              this.learner.setLabel(label_mse, label_waktu, do_learn,save_bobot);
+              this.learner.setLabel(label_mse, label_waktu, do_learn);
               this.learner.setProgressBar(p);
               this.learner.execute();
               
@@ -269,6 +255,14 @@ public class Main {
            pengujian.doPengujian();
         }else{
            JOptionPane.showMessageDialog(null,"Data Uji tidak ada"," Ooops",JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    public void releaseData(String data){
+        if(data.equalsIgnoreCase("Uji")){
+            this.data_uji.clear();
+        }else if(data.equalsIgnoreCase("Latih")){
+            this.data_latih.clear();
         }
     }
     
