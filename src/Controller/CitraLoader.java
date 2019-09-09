@@ -31,6 +31,7 @@ public class CitraLoader extends SwingWorker {
     private JList list_image;
     private JLabel label_jumlah_data;
     private Prapengolahan pra_proses = new Prapengolahan();
+<<<<<<< HEAD
     private double foregroundThreshold = 0.0;
     
     public CitraLoader(File f, JProgressBar p,JLabel label_jumlah_data){
@@ -45,6 +46,14 @@ public class CitraLoader extends SwingWorker {
         this.label_jumlah_data = label_jumlah_data;
         this.foregroundThreshold = foregroundThreshold;
     }
+=======
+    
+    public CitraLoader(File f, JProgressBar p,JLabel label_jumlah_data){
+            this.file = f;
+            this.progress = p;
+            this.label_jumlah_data = label_jumlah_data;
+        }
+>>>>>>> e235c7e2a2cf4e3684bf6e758417ef91ffff8a6a
         
     public void setData(ArrayList<Data> data){
         this.kumpulan_data = data;
@@ -68,8 +77,12 @@ public class CitraLoader extends SwingWorker {
                 citra = pra_proses.doBinerisasi(pra_proses.doInvers(pra_proses
                         .doGrayScale(new CitraWarna(ImageIO
                                 .read(f.getAbsoluteFile())))), f.getName());
+<<<<<<< HEAD
                 ProfileProjection projector = 
                         new ProfileProjection(citra, f.getName(), this.foregroundThreshold);
+=======
+                ProfileProjection projector = new ProfileProjection(citra, f.getName());
+>>>>>>> e235c7e2a2cf4e3684bf6e758417ef91ffff8a6a
                 citra = projector.getProjectedImage();
                 this.progress.setString((index/100*this.file.listFiles().length)+"%");
                 data.setCitra(citra);

@@ -12,9 +12,15 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/ocr/src/View/Panel_pengujian.java</file>
             <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/ocr/src/View/Panel_Pelatihan.java</file>
             <file>file:/C:/Users/Administrator/Documents/NetBeansProjects/ocr/src/Controller/ProfileProjection.java</file>
+=======
+            <file>file:/E:/PROYEK-SKRIPSI/OCR/OCR/src/Controller/Main.java</file>
+            <file>file:/E:/PROYEK-SKRIPSI/OCR/OCR/src/View/Panel_pengujian.java</file>
+            <file>file:/E:/PROYEK-SKRIPSI/OCR/OCR/src/View/Panel_Pelatihan.java</file>
+>>>>>>> e235c7e2a2cf4e3684bf6e758417ef91ffff8a6a
         </group>
     </open-files>
 </project-private>

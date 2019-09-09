@@ -34,7 +34,10 @@ public class ProfileProjection {
     private int characterHeight;
     private CitraKeabuan citra;
     private String filename;
+<<<<<<< HEAD
     private double foregroundThreshold = 0.0;
+=======
+>>>>>>> e235c7e2a2cf4e3684bf6e758417ef91ffff8a6a
     
     public ProfileProjection(CitraKeabuan citra) {
         this.citra = citra;
@@ -43,6 +46,7 @@ public class ProfileProjection {
         this.imgHeight = this.img.getHeight();
         this.characterWidth = this.imgWidth / (MAX_CHARACTER_NUM);
         this.characterHeight = (int)(this.imgHeight * MIN_HEIGHT_SCALE);
+<<<<<<< HEAD
         
 //        String BASE_DIR = System.getProperty("user.dir");
 //        File dir = new File(BASE_DIR + "/segments");
@@ -51,6 +55,11 @@ public class ProfileProjection {
     }
     
     public ProfileProjection(CitraKeabuan citra, String filename, double foregroundThreshold) {
+=======
+    }
+    
+    public ProfileProjection(CitraKeabuan citra, String filename) {
+>>>>>>> e235c7e2a2cf4e3684bf6e758417ef91ffff8a6a
         this.filename = filename;
         this.citra = citra;
         this.img = citra.getImg();
@@ -58,12 +67,15 @@ public class ProfileProjection {
         this.imgHeight = this.img.getHeight();
         this.characterWidth = this.imgWidth / (MAX_CHARACTER_NUM);
         this.characterHeight = (int)(this.imgHeight * MIN_HEIGHT_SCALE);
+<<<<<<< HEAD
         this.foregroundThreshold = foregroundThreshold;
         
         String BASE_DIR = System.getProperty("user.dir");
         File dir = new File(BASE_DIR + "/segments/" + this.filename);
         this.deleteDirectory(dir);
 //        dir.mkdir();
+=======
+>>>>>>> e235c7e2a2cf4e3684bf6e758417ef91ffff8a6a
     }
     
     public static void main(String args[]) {
@@ -127,6 +139,10 @@ public class ProfileProjection {
 
         histogram = this.verticalProjection(newPixels);
         segmentIndices = this.cut(histogram);
+<<<<<<< HEAD
+=======
+        System.out.println(Arrays.toString(segmentIndices.toArray()));
+>>>>>>> e235c7e2a2cf4e3684bf6e758417ef91ffff8a6a
         
         if (segmentIndices.size() > 1) {
             segmentIndices = this.segmentCleaning(segmentIndices);
@@ -147,7 +163,12 @@ public class ProfileProjection {
     private void createSegment(int p[][], List<Integer> segmentIndices) {
         final int minCharWidth = this.imgWidth / (MAX_CHARACTER_NUM + 13);
         final int maxCharWidth = this.imgWidth / (MAX_CHARACTER_NUM - 1);
+<<<<<<< HEAD
 
+=======
+        System.out.println("MIN: " + minCharWidth + ", MAX: " + maxCharWidth);
+        
+>>>>>>> e235c7e2a2cf4e3684bf6e758417ef91ffff8a6a
         int startSegment = -1;
         int endSegment = -1;
         
@@ -177,6 +198,7 @@ public class ProfileProjection {
                     }
                 }
                 
+<<<<<<< HEAD
                 int width = pixelSegment[0].length;
                 int height = pixelSegment.length;
                 
@@ -201,6 +223,11 @@ public class ProfileProjection {
                 
                 this.createSegmentImage(pixelSegment, this.filename, 
                         "res-" + (++segmentNumber) + ".jpg");
+=======
+                this.createSegmentImage(pixelSegment, this.filename, 
+                        "res-" + (++segmentNumber) + ".jpg");
+                
+>>>>>>> e235c7e2a2cf4e3684bf6e758417ef91ffff8a6a
                 startSegment = -1;
                 endSegment = -1;
             }
@@ -216,14 +243,20 @@ public class ProfileProjection {
         BufferedImage img = new CitraKeabuan(p).getImg();
         
         File directory = new File(BASE_DIR + "/segments/" + dirname);
+<<<<<<< HEAD
         
+=======
+>>>>>>> e235c7e2a2cf4e3684bf6e758417ef91ffff8a6a
         if (!directory.exists()){
             directory.mkdir();
             // If you require it to make the entire directory path including parents,
             // use directory.mkdirs(); here instead.
         }
         
+<<<<<<< HEAD
         
+=======
+>>>>>>> e235c7e2a2cf4e3684bf6e758417ef91ffff8a6a
         File f = new File(BASE_DIR + "/segments/" + dirname + "/" + filename);
         try {
             System.out.println("WRITE IMAGE " + p[0].length + ", " + p.length);
@@ -234,6 +267,7 @@ public class ProfileProjection {
         
     }
     
+<<<<<<< HEAD
     private boolean deleteDirectory(File directoryToBeDeleted) {
         File[] allContents = directoryToBeDeleted.listFiles();
         if (allContents != null) {
@@ -244,6 +278,8 @@ public class ProfileProjection {
         return directoryToBeDeleted.delete();
     }
     
+=======
+>>>>>>> e235c7e2a2cf4e3684bf6e758417ef91ffff8a6a
     private int[][] connectedFilter(int p[][]) {
         for (int i = 0; i < p.length; i++) {
             p = this.filters(p, i, 1);

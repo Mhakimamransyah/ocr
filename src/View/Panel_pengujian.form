@@ -148,17 +148,22 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                   <Component id="lokasi_direktori" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace pref="7" max="32767" attributes="0"/>
                                   <Component id="foregroundThresholdField" min="-2" pref="65" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
+=======
+                                  <EmptySpace pref="190" max="32767" attributes="0"/>
+>>>>>>> e235c7e2a2cf4e3684bf6e758417ef91ffff8a6a
                               </Group>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
+<<<<<<< HEAD
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="lokasi_direktori" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
                                       <Group type="103" alignment="3" groupAlignment="3" attributes="0">
@@ -166,6 +171,9 @@
                                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
+=======
+                                  <Component id="lokasi_direktori" min="-2" pref="49" max="-2" attributes="0"/>
+>>>>>>> e235c7e2a2cf4e3684bf6e758417ef91ffff8a6a
                                   <EmptySpace min="0" pref="51" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -175,11 +183,16 @@
                         <Component class="javax.swing.JLabel" name="lokasi_direktori">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+<<<<<<< HEAD
                               <Font name="Century Gothic" size="1" style="0"/>
+=======
+                              <Font name="Century Gothic" size="11" style="0"/>
+>>>>>>> e235c7e2a2cf4e3684bf6e758417ef91ffff8a6a
                             </Property>
                             <Property name="text" type="java.lang.String" value="-"/>
                           </Properties>
                         </Component>
+<<<<<<< HEAD
                         <Component class="javax.swing.JLabel" name="jLabel3">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Foreground Threshold"/>
@@ -190,6 +203,8 @@
                             <Property name="text" type="java.lang.String" value="0.35"/>
                           </Properties>
                         </Component>
+=======
+>>>>>>> e235c7e2a2cf4e3684bf6e758417ef91ffff8a6a
                       </SubComponents>
                     </Container>
                   </SubComponents>
