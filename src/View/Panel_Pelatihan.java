@@ -45,17 +45,11 @@ public class Panel_Pelatihan extends javax.swing.JFrame {
         folder_chooser = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         lokasi_direktori = new javax.swing.JLabel();
-<<<<<<< HEAD
         foregroundThresholdField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         image_panel = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         list_image = new javax.swing.JList<String>();
-=======
-        image_panel = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        list_image = new javax.swing.JList<>();
->>>>>>> e235c7e2a2cf4e3684bf6e758417ef91ffff8a6a
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         label_jumlah_data = new javax.swing.JLabel();
@@ -147,7 +141,6 @@ public class Panel_Pelatihan extends javax.swing.JFrame {
         jPanel3.setMaximumSize(new java.awt.Dimension(156, 32767));
         jPanel3.setMinimumSize(new java.awt.Dimension(156, 100));
 
-<<<<<<< HEAD
         lokasi_direktori.setFont(new java.awt.Font("Century Gothic", 0, 1)); // NOI18N
         lokasi_direktori.setText("-");
 
@@ -155,42 +148,27 @@ public class Panel_Pelatihan extends javax.swing.JFrame {
 
         jLabel3.setText("Foreground Threshold");
 
-=======
-        lokasi_direktori.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
-        lokasi_direktori.setText("-");
-
->>>>>>> e235c7e2a2cf4e3684bf6e758417ef91ffff8a6a
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-<<<<<<< HEAD
                 .addComponent(lokasi_direktori, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addComponent(foregroundThresholdField, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-=======
-                .addComponent(lokasi_direktori)
-                .addContainerGap(232, Short.MAX_VALUE))
->>>>>>> e235c7e2a2cf4e3684bf6e758417ef91ffff8a6a
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-<<<<<<< HEAD
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lokasi_direktori, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(foregroundThresholdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(0, 74, Short.MAX_VALUE))
-=======
-                .addComponent(lokasi_direktori, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 51, Short.MAX_VALUE))
->>>>>>> e235c7e2a2cf4e3684bf6e758417ef91ffff8a6a
         );
 
         pilih_folder.add(jPanel3, java.awt.BorderLayout.CENTER);
@@ -533,14 +511,10 @@ public class Panel_Pelatihan extends javax.swing.JFrame {
 
     private void folder_chooserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_folder_chooserActionPerformed
         try {
-<<<<<<< HEAD
             double foregroundThreshold = Double.parseDouble(this.foregroundThresholdField.getText());
             this.main.muatCitra("Data Latih",this.panel_pelatihan, 
                     this.progres_muat_citra,this.lokasi_direktori,this.list_image, 
                     this.label_jumlah_data, foregroundThreshold);
-=======
-            this.main.muatCitra("Data Latih",this.panel_pelatihan,this.progres_muat_citra,this.lokasi_direktori,this.list_image,this.label_jumlah_data);
->>>>>>> e235c7e2a2cf4e3684bf6e758417ef91ffff8a6a
         } catch (IOException ex) {
             Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -607,10 +581,7 @@ public class Panel_Pelatihan extends javax.swing.JFrame {
     private javax.swing.JPanel epoch3;
     private javax.swing.JPanel epoch4;
     private javax.swing.JButton folder_chooser;
-<<<<<<< HEAD
     private javax.swing.JTextField foregroundThresholdField;
-=======
->>>>>>> e235c7e2a2cf4e3684bf6e758417ef91ffff8a6a
     private javax.swing.JPanel image_panel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
@@ -619,10 +590,7 @@ public class Panel_Pelatihan extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-<<<<<<< HEAD
     private javax.swing.JLabel jLabel3;
-=======
->>>>>>> e235c7e2a2cf4e3684bf6e758417ef91ffff8a6a
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;

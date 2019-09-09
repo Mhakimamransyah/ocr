@@ -218,7 +218,6 @@ public class Main {
         return valid;
     }
    
-<<<<<<< HEAD
     public void muatCitra(String tipe,javax.swing.JPanel parent_panel, 
             JProgressBar progress, JLabel label_dir,
             JList list_image,JLabel label_jumlah_data, double foregroundThreshold) throws IOException{ 
@@ -226,13 +225,6 @@ public class Main {
         label_dir.setText(dir);
         CitraLoader memuat_citra = new CitraLoader(new File(dir),progress, 
                 label_jumlah_data, foregroundThreshold);
-=======
-    public void muatCitra(String tipe,javax.swing.JPanel parent_panel, JProgressBar progress, JLabel label_dir,
-            JList list_image,JLabel label_jumlah_data) throws IOException{ 
-        String dir = this.pilihDirektori(parent_panel);
-        label_dir.setText(dir);
-        CitraLoader memuat_citra = new CitraLoader(new File(dir),progress, label_jumlah_data);
->>>>>>> e235c7e2a2cf4e3684bf6e758417ef91ffff8a6a
         memuat_citra.setPanel_image(list_image);
         if(tipe.equalsIgnoreCase("Data Latih")){
             this.data_latih.clear();
